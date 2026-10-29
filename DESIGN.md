@@ -19,13 +19,13 @@ A direção visual segue a captura de referência fornecida pelo autor: uma tela
 | Papel        | `#e6dfd4` | Fundo de pergaminho do diálogo       |
 | Azul         | `#314cc1` | Link de contato no painel de diálogo |
 
-O cenário mantém tons terrosos, verde de vale e azul de estandartes. Painéis usam bordas em camadas, sombras internas e gradientes para sugerir pedra esculpida. Botões têm relevo, foco visível e realce ao passar o cursor.
+O cenário mantém tons terrosos, verde de vale e azul de estandartes. Painéis usam bordas em camadas, sombras internas e gradientes para sugerir pedra esculpida. O título usa letras individuais com textura de pedra, sem arma sobreposta. Botões têm relevo, foco visível e realce ao passar o cursor.
 
 ## Layout e tipografia
 
 Em telas largas, o layout distribui ficha do personagem, título, habilidades, personagem, menu central, mensagem de boas-vindas e foco profissional em três colunas. Em tablets e celulares, os blocos passam a uma coluna; o quadro lateral de habilidades fica oculto e aparece em modal central quando a opção Habilidades é selecionada. A mensagem neutra de boas-vindas permanece no rodapé, enquanto cada opção do menu abre sua própria modal. O menu tem altura adequada ao toque e o personagem reduz de tamanho sem desaparecer.
 
-O texto usa Courier New e fontes monoespaçadas do sistema para reforçar a interface retrô. O título tem contorno e sombra dourada. Bootstrap 5.3 fornece container, grid, utilitários de espaço e flex, botões e recursos de acessibilidade; SCSS local fica para os materiais, a composição de tela e a pixel art.
+O texto usa Courier New e fontes monoespaçadas do sistema para reforçar a interface retrô; o título contrasta com letras serifadas em placas de pedra e o subtítulo dourado. Bootstrap 5.3 fornece container, grid, utilitários de espaço e flex, botões e recursos de acessibilidade; SCSS local fica para os materiais, a composição de tela e a pixel art.
 
 ## Componentes e comportamento
 
