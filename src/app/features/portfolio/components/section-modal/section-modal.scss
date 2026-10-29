@@ -11,7 +11,11 @@
   border-radius: 1.1rem;
   outline: 2px solid var(--game-stone-300);
   background:
-    url('/stone-texture.svg') 0 0 / 8rem 8rem repeat,
+    linear-gradient(
+      var(--game-charcoal-alpha-62),
+      var(--game-charcoal-alpha-62)
+    ),
+    url('/rock-title.jpg') 0 0 / 12rem 12rem repeat,
     repeating-linear-gradient(
       0deg,
       transparent 0 0.35rem,
@@ -23,6 +27,7 @@
       var(--game-stone-900) 62%,
       var(--game-ink-950)
     );
+  background-blend-mode: normal, luminosity, normal, normal;
   box-shadow:
     inset 0 0 0 0.2rem var(--game-stone-500),
     inset 0 0 1.5rem var(--game-black-alpha-46),
@@ -63,7 +68,14 @@
   padding: 0;
   place-items: center;
   border: 1px solid var(--game-stone-200);
-  background: var(--game-stone-800);
+  background:
+    linear-gradient(
+      var(--game-charcoal-alpha-62),
+      var(--game-charcoal-alpha-62)
+    ),
+    url('/rock-title.jpg') center / 6rem 6rem,
+    var(--game-stone-800);
+  background-blend-mode: normal, luminosity, normal;
   color: var(--game-gold-300);
 }
 .modal-close .material-symbols-outlined {

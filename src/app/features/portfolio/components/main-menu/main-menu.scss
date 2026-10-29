@@ -13,7 +13,11 @@
   border-radius: 0.7rem;
   outline: 1px solid var(--game-stone-300);
   background:
-    url('/stone-texture.svg') 0 0 / 6rem 6rem repeat,
+    linear-gradient(
+      var(--game-charcoal-alpha-62),
+      var(--game-charcoal-alpha-62)
+    ),
+    url('/rock-title.jpg') 0 0 / 8rem 8rem repeat,
     repeating-linear-gradient(
       0deg,
       transparent 0 0.3rem,
@@ -25,6 +29,7 @@
       var(--game-stone-700) 55%,
       var(--game-stone-800)
     );
+  background-blend-mode: normal, luminosity, normal, normal;
   box-shadow:
     inset 0 1px var(--game-white-alpha-15),
     inset 0 -3px var(--game-black-alpha-35),
@@ -43,8 +48,13 @@
 .menu-option:focus-visible {
   border-color: var(--game-stone-950);
   background:
-    url('/stone-texture.svg') 0 0 / 6rem 6rem repeat,
+    linear-gradient(
+      var(--game-charcoal-alpha-46),
+      var(--game-charcoal-alpha-46)
+    ),
+    url('/rock-title.jpg') 0 0 / 8rem 8rem repeat,
     linear-gradient(180deg, var(--game-stone-400), var(--game-stone-550));
+  background-blend-mode: normal, luminosity, normal;
   color: var(--game-gold-200);
   filter: brightness(1.08);
   transform: translateX(2px);

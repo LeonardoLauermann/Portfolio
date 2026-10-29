@@ -6,7 +6,7 @@ A direção visual segue a captura de referência fornecida pelo autor: uma tela
 
 ## Cenário e personagem
 
-`public/medieval-pixel-world.png` é uma paisagem original em pixel art criada para o projeto: portal de pedra, bandeiras azuis, tochas, vila e vale ao fundo. `public/wizard-leonardo.png` é uma representação em pixel art do autor como mago, baseada na foto fornecida para este propósito. As imagens são decorativas em relação à navegação; o personagem tem texto alternativo por representar o autor.
+`public/medieval-pixel-world.png` é uma paisagem original em pixel art criada para o projeto: portal de pedra, bandeiras azuis, tochas, vila e vale ao fundo. `public/wizard-leonardo.png` representa o autor como mago; `public/archer-companion.png` e `public/cat-companions.png` representam sua namorada como arqueira e seus dois gatos, a partir das fotos fornecidas. Os personagens têm texto alternativo.
 
 ## Paleta e materiais
 
@@ -19,7 +19,7 @@ A direção visual segue a captura de referência fornecida pelo autor: uma tela
 | Papel        | `#cbb07b` | Fundo de pergaminho do diálogo       |
 | Azul         | `#314cc1` | Link de contato no painel de diálogo |
 
-O cenário mantém tons terrosos, verde de vale e azul de estandartes. Painéis usam pedra cinza, textura SVG original, cantos arredondados, bordas em camadas e sombras internas. O título “PORTFÓLIO” aparece em letras individuais de pedra. Botões têm cantos suaves, relevo, foco visível e estado pressionado.
+O cenário mantém tons terrosos, verde de vale e azul de estandartes. Painéis e botões usam a textura de rocha CC0 otimizada ([Rock 3](https://polyhaven.com/a/rock_3)), combinada com pedra cinza, cantos arredondados, bordas em camadas e sombras internas. A mesma textura aparece suavemente sobre o pergaminho do chat. O título “PORTFÓLIO” apresenta um contorno de rocha diferente para cada letra. Botões têm relevo, foco visível e estado pressionado.
 
 ## Layout e tipografia
 
@@ -33,9 +33,9 @@ O texto usa Courier New e fontes monoespaçadas do sistema para reforçar a inte
 - `features/portfolio/components/hero`: logotipo.
 - `features/portfolio/components/audio-controls`: controle de som acima do foco profissional no desktop e flutuante no mobile, com ajuste de volume recolhido.
 - `features/portfolio/components/profile`: nome e resumo profissional.
-- `features/portfolio/components/main-menu`: menu CDK que abre modais de seção.
+- `features/portfolio/components/main-menu`: menu CDK que abre modais de seção, incluindo hobbies.
 - `features/portfolio/components/section-modal`: conteúdo central com foco modal, Escape e botão de fechar.
-- `features/portfolio/components/character`: personagem em pixel art e ciclo de movimento GSAP.
+- `features/portfolio/components/character`: mago, arqueira e gatos em pixel art, com movimentos GSAP, destaque e nomes no hover ou foco.
 - `features/portfolio/components/skills`: competências do currículo agrupadas por área e destaques com níveis da referência; o quadro lateral fica oculto em mobile até ser aberto pelo menu.
 - `features/portfolio/components/dialogue`: mensagem neutra e permanente de boas-vindas.
 - `features/portfolio/components/objectives`: foco profissional baseado nas atividades descritas no currículo.

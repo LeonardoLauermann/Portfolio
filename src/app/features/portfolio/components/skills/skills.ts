@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 interface Skill {
   readonly name: string;
   readonly icon?: string;
-  readonly level?: number;
+  readonly level: number;
   readonly details?: string;
 }
 
@@ -31,11 +31,10 @@ export class Skills {
       name: 'Linguagens e Frameworks',
       icon: 'csharp-sword',
       skills: [
-        { name: 'C#', icon: 'csharp-sword', level: 90 },
+        { name: 'C#', icon: 'csharp-sword' },
         {
           name: '.NET',
           icon: 'dotnet-bars',
-          level: 88,
           details:
             '.NET Framework · .NET Core · .NET 5+ · ASP.NET MVC · ASP.NET Core',
         },
@@ -54,7 +53,7 @@ export class Skills {
       icon: 'angular-shield',
       skills: [
         { name: 'AngularJS', icon: 'angular-shield' },
-        { name: 'Angular', icon: 'angular-shield', level: 85 },
+        { name: 'Angular', icon: 'angular-shield' },
         { name: 'React', icon: 'react-rune' },
         { name: 'Next.js', icon: 'react-rune' },
         { name: 'Vue.js', icon: 'rest-leaf' },
@@ -68,7 +67,7 @@ export class Skills {
       icon: 'dotnet-bars',
       skills: [
         { name: 'ASP.NET Core Web API', icon: 'dotnet-bars' },
-        { name: 'APIs RESTful', icon: 'rest-leaf', level: 82 },
+        { name: 'APIs RESTful', icon: 'rest-leaf' },
         { name: 'Injeção de Dependência (DI)', icon: 'git-tree' },
         { name: 'LINQ', icon: 'sql-pick' },
         { name: 'Autenticação JWT', icon: 'angular-shield' },
@@ -80,26 +79,26 @@ export class Skills {
       name: 'Banco de Dados',
       icon: 'sql-pick',
       skills: [
-        { name: 'SQL Server', icon: 'sql-pick', level: 80 },
+        { name: 'SQL Server', icon: 'sql-pick' },
         { name: 'MySQL', icon: 'sql-pick' },
         { name: 'PostgreSQL', icon: 'sql-pick' },
         { name: 'SQL', icon: 'sql-pick' },
         { name: 'Modelagem de Dados', icon: 'dapper-scroll' },
         { name: 'Stored Procedures', icon: 'dapper-scroll' },
         { name: 'Otimização de Consultas', icon: 'dapper-scroll' },
-        { name: 'Banco de Dados', icon: 'dapper-scroll', level: 80 },
+        { name: 'Banco de Dados', icon: 'dapper-scroll' },
       ],
     },
     {
       name: 'Ferramentas e DevOps',
       icon: 'git-tree',
       skills: [
-        { name: 'Git', icon: 'git-tree', level: 82 },
+        { name: 'Git', icon: 'git-tree' },
         { name: 'GitHub', icon: 'git-tree' },
         { name: 'Azure DevOps', icon: 'azure-lightning' },
         { name: 'Azure Functions', icon: 'azure-lightning' },
         { name: 'Azurite', icon: 'azure-lightning' },
-        { name: 'Docker', icon: 'docker-fish', level: 70 },
+        { name: 'Docker', icon: 'docker-fish' },
         { name: 'Linux', icon: 'azure-lightning' },
         { name: 'CI/CD', icon: 'dotnet-bars' },
         { name: 'Quartz.NET', icon: 'menu/education-scroll' },
@@ -151,16 +150,15 @@ export class Skills {
         {
           name: 'Sistema Fiscal e Tributário',
           icon: 'dapper-scroll',
-          level: 78,
         },
-        { name: 'Resolução de Problemas', icon: 'problem-solving', level: 90 },
+        { name: 'Resolução de Problemas', icon: 'problem-solving' },
       ],
     },
   ].map((group, groupIndex) => ({
     ...group,
     skills: group.skills.map((skill, skillIndex) => ({
       ...skill,
-      level: skill.level ?? 68 + ((groupIndex * 13 + skillIndex * 7) % 27),
+      level: 68 + ((groupIndex * 13 + skillIndex * 7) % 27),
     })),
   }));
 }

@@ -4,9 +4,10 @@ import {
   ElementRef,
   AfterViewInit,
   OnDestroy,
-  ViewChild,
   input,
   output,
+  signal,
+  viewChild,
 } from '@angular/core';
 import { gsap } from 'gsap';
 import type { PortfolioSection } from '../main-menu/main-menu';
@@ -24,14 +25,14 @@ export class SectionModal implements AfterViewInit, OnDestroy {
   readonly section = input.required<PortfolioSection>();
   readonly closed = output<void>();
   readonly content = DIALOGUE_CONTENT;
-  @ViewChild('sectionDialog')
-  private dialogElement?: ElementRef<HTMLDialogElement>;
+  private readonly dialogElement =
+    viewChild<ElementRef<HTMLDialogElement>>('sectionDialog');
   private previousFocus: HTMLElement | null = null;
   private animationContext?: gsap.Context;
-  private closing = false;
+  private readonly closing = signal(false);
 
   ngAfterViewInit(): void {
-    const dialog = this.dialogElement?.nativeElement;
+    const dialog = this.dialogElement()?.nativeElement;
     if (dialog && !dialog.open) {
       this.previousFocus = document.activeElement as HTMLElement | null;
       dialog.showModal();
@@ -62,13 +63,13 @@ export class SectionModal implements AfterViewInit, OnDestroy {
   }
 
   close(): void {
-    const dialog = this.dialogElement?.nativeElement;
-    if (!dialog?.open || this.closing) return;
+    const dialog = this.dialogElement()?.nativeElement;
+    if (!dialog?.open || this.closing()) return;
     if (!this.animationContext) {
       dialog.close();
       return;
     }
-    this.closing = true;
+    this.closing.set(true);
     this.animationContext.add(() => {
       gsap.to(dialog, {
         opacity: 0,

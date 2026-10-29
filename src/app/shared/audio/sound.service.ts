@@ -3,8 +3,10 @@ import { Howl } from 'howler';
 
 @Injectable({ providedIn: 'root' })
 export class SoundService {
-  readonly enabled = signal(true);
-  readonly musicVolume = signal(0.24);
+  private readonly enabledState = signal(true);
+  private readonly musicVolumeState = signal(0.24);
+  readonly enabled = this.enabledState.asReadonly();
+  readonly musicVolume = this.musicVolumeState.asReadonly();
 
   private readonly selection = new Howl({
     src: ['sounds/menu-select.wav'],
@@ -35,7 +37,7 @@ export class SoundService {
         return;
       }
 
-      this.enabled.set(false);
+      this.enabledState.set(false);
       this.ambience.fade(this.ambience.volume(), 0, 350);
       window.setTimeout(() => {
         if (!this.enabled()) this.ambience.stop();
@@ -43,7 +45,7 @@ export class SoundService {
       return;
     }
 
-    this.enabled.set(true);
+    this.enabledState.set(true);
     if (!this.ambience.playing()) this.ambience.play();
     this.ambience.fade(this.ambience.volume(), this.musicVolume(), 1200);
     this.playUi();
@@ -51,7 +53,7 @@ export class SoundService {
 
   setMusicVolume(volume: number): void {
     const nextVolume = Math.max(0, Math.min(0.6, volume));
-    this.musicVolume.set(nextVolume);
+    this.musicVolumeState.set(nextVolume);
     if (this.enabled() && this.ambience.playing()) {
       this.ambience.fade(this.ambience.volume(), nextVolume, 180);
     }

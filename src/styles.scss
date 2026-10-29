@@ -95,7 +95,11 @@ a {
   border-radius: 1.1rem;
   outline: 1px solid var(--game-stone-200);
   background:
-    url('/stone-texture.svg') 0 0 / 8rem 8rem repeat,
+    linear-gradient(
+      var(--game-charcoal-alpha-62),
+      var(--game-charcoal-alpha-62)
+    ),
+    url('/rock-title.jpg') 0 0 / 12rem 12rem repeat,
     repeating-linear-gradient(
       90deg,
       transparent 0 2.7rem,
@@ -115,6 +119,7 @@ a {
       var(--game-stone-900) 68%,
       var(--game-stone-950)
     );
+  background-blend-mode: normal, luminosity, normal, normal, normal;
   box-shadow:
     inset 0 0 0 0.18rem var(--game-stone-450),
     inset 0.3rem 0.3rem 0 var(--game-white-alpha-02),

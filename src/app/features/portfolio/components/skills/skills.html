@@ -27,9 +27,7 @@
         aria-hidden="true"
       />
       <span>{{ skill.name }}</span>
-      @if (skill.level !== undefined) {
       <strong>{{ skill.level }}</strong>
-      }
       <span class="skill-tooltip" role="tooltip" aria-hidden="true">
         {{ skill.name }} · Nível {{ skill.level }} (valor ilustrativo)@if
         (skill.details) { · {{ skill.details }}}

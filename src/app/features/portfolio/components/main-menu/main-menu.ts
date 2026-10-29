@@ -19,6 +19,7 @@ export type PortfolioSection =
   | 'skills'
   | 'education'
   | 'objectives'
+  | 'hobbies'
   | 'contact';
 
 interface MenuOption {
@@ -69,6 +70,11 @@ export class MainMenu implements OnInit, OnDestroy {
       section: 'objectives',
       label: 'Objetivos',
       icon: '/icons/menu/objective-group.svg',
+    },
+    {
+      section: 'hobbies',
+      label: 'Hobbies',
+      icon: '/icons/menu/project-chest.svg',
     },
     {
       section: 'contact',

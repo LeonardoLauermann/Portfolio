@@ -128,7 +128,15 @@ export const DIALOGUE_CONTENT: Record<PortfolioSection, DialogueContent> = {
   objectives: {
     title: 'Objetivos',
     paragraphs: [
-      'Desenvolver soluções escaláveis, confiáveis e de fácil manutenção, contribuindo com integrações entre sistemas, automação de processos e modernização tecnológica.',
+      'Forjar soluções escaláveis, confiáveis e fáceis de manter, conectando sistemas, automatizando processos e renovando tecnologias legadas. Quero criar interfaces intuitivas e envolventes, cujas animações deem vida à experiência sem obscurecer a usabilidade, e abrir caminhos mais acessíveis na internet para que pessoas com deficiência possam navegar com autonomia.',
+    ],
+  },
+  hobbies: {
+    title: 'Hobbies',
+    paragraphs: [
+      'Fora do desenvolvimento, gosto de praticar powerlifting e aproveitar o desafio dos jogos competitivos.',
+      'Old School RuneScape tem um lugar especial entre meus jogos e é uma grande inspiração para a aventura que você encontra neste portfólio.',
+      'Também valorizo os momentos em família, com minha namorada e nossos gatos, Gatuno e Legolas.',
     ],
   },
   contact: {

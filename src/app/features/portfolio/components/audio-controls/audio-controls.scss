@@ -21,11 +21,14 @@
   gap: 0.45rem;
   border: 1px solid var(--game-stone-200);
   border-radius: 0.55rem;
-  background: linear-gradient(
-    180deg,
-    var(--game-stone-600),
-    var(--game-stone-800)
-  );
+  background:
+    linear-gradient(
+      var(--game-charcoal-alpha-62),
+      var(--game-charcoal-alpha-62)
+    ),
+    url('/rock-title.jpg') center / 8rem 8rem,
+    linear-gradient(180deg, var(--game-stone-600), var(--game-stone-800));
+  background-blend-mode: normal, luminosity, normal;
   color: var(--game-gold-300);
   font:
     700 0.78rem 'Courier New',
@@ -38,11 +41,14 @@
 .audio-button:hover,
 .audio-button:focus-visible {
   border-color: var(--game-gold-400);
-  background: linear-gradient(
-    180deg,
-    var(--game-stone-500),
-    var(--game-stone-650)
-  );
+  background:
+    linear-gradient(
+      var(--game-charcoal-alpha-46),
+      var(--game-charcoal-alpha-46)
+    ),
+    url('/rock-title.jpg') center / 8rem 8rem,
+    linear-gradient(180deg, var(--game-stone-500), var(--game-stone-650));
+  background-blend-mode: normal, luminosity, normal;
   color: var(--game-gold-200);
   transform: translateY(-1px);
 }

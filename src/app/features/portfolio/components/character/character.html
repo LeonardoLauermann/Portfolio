@@ -1,9 +1,54 @@
 <div class="character-wrap">
-  <img
-    class="wizard-avatar"
-    src="/wizard-leonardo.png"
-    alt="Leonardo Lauermann retratado como um mago em pixel art"
-    draggable="false"
-  />
+  <div
+    class="character-item wizard-item"
+    tabindex="0"
+    role="button"
+    aria-label="leo, mago em pixel art"
+    (click)="playMovement()"
+    (keydown.enter)="playMovement()"
+    (keydown.space)="$event.preventDefault(); playMovement()"
+  >
+    <img
+      class="wizard-avatar"
+      src="/wizard-leonardo.png"
+      alt=""
+      draggable="false"
+    />
+    <span class="character-tooltip" aria-hidden="true">leo</span>
+  </div>
+  <div
+    class="character-item archer-item"
+    tabindex="0"
+    role="button"
+    aria-label="alexia, arqueira em pixel art"
+    (click)="playMovement()"
+    (keydown.enter)="playMovement()"
+    (keydown.space)="$event.preventDefault(); playMovement()"
+  >
+    <img
+      class="archer-avatar"
+      src="/archer-companion.png"
+      alt=""
+      draggable="false"
+    />
+    <span class="character-tooltip" aria-hidden="true">alexia</span>
+  </div>
+  <div
+    class="character-item cats-item"
+    tabindex="0"
+    role="button"
+    aria-label="gatuno e legolas, gatos em pixel art"
+    (click)="playMovement()"
+    (keydown.enter)="playMovement()"
+    (keydown.space)="$event.preventDefault(); playMovement()"
+  >
+    <img
+      class="cat-companions"
+      src="/cat-companions.png"
+      alt=""
+      draggable="false"
+    />
+    <span class="character-tooltip" aria-hidden="true">gatuno e legolas</span>
+  </div>
   <span class="wizard-spark" aria-hidden="true">✦</span>
 </div>

@@ -37,7 +37,7 @@
   border-bottom: 1px solid var(--game-stone-edge-alpha-22);
   color: var(--game-gold-300);
   font:
-    700 0.72rem 'Courier New',
+    700 0.82rem 'Courier New',
     monospace;
 }
 .skill-category:first-of-type {
@@ -53,7 +53,7 @@
   border-bottom: 1px solid var(--game-stone-edge-alpha-22);
   color: var(--game-parchment-200);
   font:
-    0.82rem 'Courier New',
+    0.96rem 'Courier New',
     monospace;
 }
 .skill-row {
@@ -74,7 +74,14 @@
   transform: translate(-50%, 0.3rem);
   border: 1px solid var(--game-gold-500);
   border-radius: 0.3rem;
-  background: var(--game-stone-950);
+  background:
+    linear-gradient(
+      var(--game-charcoal-alpha-62),
+      var(--game-charcoal-alpha-62)
+    ),
+    url('/rock-title.jpg') center / 8rem 8rem,
+    var(--game-stone-950);
+  background-blend-mode: normal, luminosity, normal;
   color: var(--game-parchment-100);
   font-size: 0.75rem;
   line-height: 1.35;
@@ -105,7 +112,7 @@
 }
 .skills-panel li strong {
   color: var(--game-gold-400);
-  font-size: 0.7rem;
+  font-size: 0.85rem;
   font-weight: 700;
 }
 @media (max-width: 991.98px) {

@@ -36,12 +36,10 @@ import { SectionModal } from './features/portfolio/components/section-modal/sect
 })
 export class App implements AfterViewInit, OnDestroy {
   readonly activeSection = signal<PortfolioSection | null>(null);
-  readonly isMoving = signal(false);
   private readonly host = inject(ElementRef<HTMLElement>);
   private readonly motionPreference = window.matchMedia(
     '(prefers-reduced-motion: reduce)',
   );
-  private movementTimer?: number;
   private animationContext?: gsap.Context;
 
   ngAfterViewInit(): void {
@@ -90,9 +88,6 @@ export class App implements AfterViewInit, OnDestroy {
 
   selectSection(section: PortfolioSection): void {
     this.activeSection.set(section);
-    this.isMoving.set(true);
-    window.clearTimeout(this.movementTimer);
-    this.movementTimer = window.setTimeout(() => this.isMoving.set(false), 850);
   }
 
   closeSection(): void {
@@ -100,7 +95,6 @@ export class App implements AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    window.clearTimeout(this.movementTimer);
     this.animationContext?.revert();
   }
 }
