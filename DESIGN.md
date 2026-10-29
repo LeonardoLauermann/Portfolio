@@ -12,14 +12,14 @@ A direção visual segue a captura de referência fornecida pelo autor: uma tela
 
 | Cor          | Valor     | Uso                                  |
 | ------------ | --------- | ------------------------------------ |
-| Carvão       | `#140f09` | Fundo e contorno das janelas         |
-| Pedra escura | `#292116` | Painéis e botões de menu             |
-| Pedra média  | `#51402a` | Relevos e molduras                   |
+| Carvão       | `#10100f` | Fundo e contorno das janelas         |
+| Pedra escura | `#282a2c` | Painéis e botões de menu             |
+| Pedra média  | `#4b4e52` | Relevos e molduras                   |
 | Ouro         | `#e0b323` | Títulos, bordas e destaques          |
 | Papel        | `#cbb07b` | Fundo de pergaminho do diálogo       |
 | Azul         | `#314cc1` | Link de contato no painel de diálogo |
 
-O cenário mantém tons terrosos, verde de vale e azul de estandartes. Painéis usam bordas em camadas, marcas discretas, sombras internas e gradientes para sugerir pedra esculpida. O título “PORTFÓLIO” aparece em letras individuais de pedra, sem lâmina sobreposta. Botões têm relevo, foco visível e estado pressionado.
+O cenário mantém tons terrosos, verde de vale e azul de estandartes. Painéis usam pedra cinza, textura SVG original, cantos arredondados, bordas em camadas e sombras internas. O título “PORTFÓLIO” aparece em letras individuais de pedra. Botões têm cantos suaves, relevo, foco visível e estado pressionado.
 
 ## Layout e tipografia
 

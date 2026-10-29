@@ -8,9 +8,10 @@
   padding: 1rem;
   overflow: hidden;
   border: 0.22rem solid var(--game-ink-950);
-  border-radius: 0.4rem;
+  border-radius: 1.1rem;
   outline: 2px solid var(--game-stone-300);
   background:
+    url('/stone-texture.svg') 0 0 / 8rem 8rem repeat,
     repeating-linear-gradient(
       0deg,
       transparent 0 0.35rem,

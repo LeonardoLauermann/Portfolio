@@ -92,8 +92,10 @@ a {
   position: relative;
   z-index: 2;
   border: 0.2rem solid var(--game-ink-950);
+  border-radius: 1.1rem;
   outline: 1px solid var(--game-stone-200);
   background:
+    url('/stone-texture.svg') 0 0 / 8rem 8rem repeat,
     repeating-linear-gradient(
       90deg,
       transparent 0 2.7rem,

@@ -10,9 +10,10 @@
 .menu-option {
   min-height: 3.25rem;
   border: 2px solid var(--game-ink-950);
-  border-radius: 0.35rem;
+  border-radius: 0.7rem;
   outline: 1px solid var(--game-stone-300);
   background:
+    url('/stone-texture.svg') 0 0 / 6rem 6rem repeat,
     repeating-linear-gradient(
       0deg,
       transparent 0 0.3rem,
@@ -41,11 +42,9 @@
 .menu-option:hover,
 .menu-option:focus-visible {
   border-color: var(--game-stone-950);
-  background: linear-gradient(
-    180deg,
-    var(--game-stone-400),
-    var(--game-stone-550)
-  );
+  background:
+    url('/stone-texture.svg') 0 0 / 6rem 6rem repeat,
+    linear-gradient(180deg, var(--game-stone-400), var(--game-stone-550));
   color: var(--game-gold-200);
   filter: brightness(1.08);
   transform: translateX(2px);

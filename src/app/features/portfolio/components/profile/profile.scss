@@ -6,11 +6,9 @@
   z-index: 1;
   border: 0.2rem solid var(--game-ink-950);
   outline: 1px solid var(--game-stone-200);
-  background: linear-gradient(
-    145deg,
-    var(--game-stone-600),
-    var(--game-stone-850) 70%
-  );
+  background:
+    url('/stone-texture.svg') 0 0 / 8rem 8rem repeat,
+    linear-gradient(145deg, var(--game-stone-600), var(--game-stone-850) 70%);
   box-shadow:
     inset 0 0 0 0.15rem var(--game-stone-450),
     0 0.45rem 0.8rem var(--game-black-alpha-45);
