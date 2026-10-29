@@ -3,6 +3,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   ElementRef,
+  OnInit,
   OnDestroy,
   inject,
   signal,
@@ -34,13 +35,30 @@ import { SectionModal } from './features/portfolio/components/section-modal/sect
   changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './app.scss',
 })
-export class App implements AfterViewInit, OnDestroy {
+export class App implements OnInit, AfterViewInit, OnDestroy {
   readonly activeSection = signal<PortfolioSection | null>(null);
+  readonly showDesktopSkills = signal(
+    !window.matchMedia('(max-width: 991.98px)').matches,
+  );
   private readonly host = inject(ElementRef<HTMLElement>);
   private readonly motionPreference = window.matchMedia(
     '(prefers-reduced-motion: reduce)',
   );
   private animationContext?: gsap.Context;
+  private readonly ambientAnimations: gsap.core.Animation[] = [];
+  private readonly desktopSkillsQuery = window.matchMedia('(min-width: 992px)');
+  private readonly updateDesktopSkills = (event: MediaQueryListEvent): void =>
+    this.showDesktopSkills.set(event.matches);
+  private readonly updateVisibility = (): void =>
+    this.updateAmbientAnimations();
+
+  ngOnInit(): void {
+    this.desktopSkillsQuery.addEventListener(
+      'change',
+      this.updateDesktopSkills,
+    );
+    document.addEventListener('visibilitychange', this.updateVisibility);
+  }
 
   ngAfterViewInit(): void {
     this.animationContext = gsap.context(() => {
@@ -63,24 +81,28 @@ export class App implements AfterViewInit, OnDestroy {
         });
 
         gsap.utils.toArray<HTMLElement>('.door-fire').forEach((fire, index) => {
-          gsap
-            .timeline({ repeat: -1, delay: index * 0.13 })
-            .to(fire, { scale: 1.16, opacity: 0.68, duration: 0.18 })
-            .to(fire, { scale: 0.94, opacity: 0.4, duration: 0.12 })
-            .to(fire, { scale: 1.27, opacity: 0.75, duration: 0.22 })
-            .to(fire, { scale: 1, opacity: 0.48, duration: 0.3 });
+          this.ambientAnimations.push(
+            gsap
+              .timeline({ repeat: -1, delay: index * 0.13 })
+              .to(fire, { scale: 1.16, opacity: 0.68, duration: 0.18 })
+              .to(fire, { scale: 0.94, opacity: 0.4, duration: 0.12 })
+              .to(fire, { scale: 1.27, opacity: 0.75, duration: 0.22 })
+              .to(fire, { scale: 1, opacity: 0.48, duration: 0.3 }),
+          );
         });
 
         gsap.utils.toArray<HTMLElement>('.dust-mote').forEach((mote, index) => {
-          gsap.to(mote, {
-            y: -20 - index * 3,
-            x: index % 2 ? 7 : -7,
-            opacity: 0.12,
-            duration: 3.5 + index * 0.5,
-            repeat: -1,
-            yoyo: true,
-            ease: 'sine.inOut',
-          });
+          this.ambientAnimations.push(
+            gsap.to(mote, {
+              y: -20 - index * 3,
+              x: index % 2 ? 7 : -7,
+              opacity: 0.12,
+              duration: 3.5 + index * 0.5,
+              repeat: -1,
+              yoyo: true,
+              ease: 'sine.inOut',
+            }),
+          );
         });
       }
     }, this.host.nativeElement);
@@ -88,13 +110,27 @@ export class App implements AfterViewInit, OnDestroy {
 
   selectSection(section: PortfolioSection): void {
     this.activeSection.set(section);
+    this.updateAmbientAnimations();
   }
 
   closeSection(): void {
     this.activeSection.set(null);
+    this.updateAmbientAnimations();
   }
 
   ngOnDestroy(): void {
+    this.desktopSkillsQuery.removeEventListener(
+      'change',
+      this.updateDesktopSkills,
+    );
+    document.removeEventListener('visibilitychange', this.updateVisibility);
     this.animationContext?.revert();
+  }
+
+  private updateAmbientAnimations(): void {
+    const shouldPause = this.activeSection() !== null || document.hidden;
+    this.ambientAnimations.forEach((animation) =>
+      shouldPause ? animation.pause() : animation.resume(),
+    );
   }
 }

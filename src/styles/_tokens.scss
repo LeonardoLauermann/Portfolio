@@ -1,4 +1,8 @@
 :root {
+  --game-stone-texture: image-set(
+    url('/rock-title.webp') type('image/webp'),
+    url('/rock-title.jpg') type('image/jpeg')
+  );
   --game-ink-950: #10100f;
   --game-ink-900: #191a19;
   --game-stone-950: #1a1b1c;

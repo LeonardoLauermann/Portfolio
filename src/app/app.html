@@ -4,9 +4,11 @@
   >
   <app-profile />
   <app-hero />
+  @if (showDesktopSkills()) {
   <app-skills />
+  }
 
-  <app-character />
+  <app-character [paused]="activeSection() !== null" />
   <div class="door-fire door-fire-left" aria-hidden="true"></div>
   <div class="door-fire door-fire-right" aria-hidden="true"></div>
   <div class="hall-dust" aria-hidden="true">
@@ -17,8 +19,10 @@
 
   <app-main-menu id="game-menu" (sectionSelected)="selectSection($event)" />
   <app-dialogue />
-  @if (activeSection(); as section) {
+  @defer (when activeSection() !== null) { @if (activeSection(); as section) {
   <app-section-modal [section]="section" (closed)="closeSection()" />
+  } } @loading {
+  <span class="visually-hidden" role="status">Carregando seção...</span>
   }
   <app-objectives />
 </main>

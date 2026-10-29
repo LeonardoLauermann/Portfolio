@@ -24,6 +24,17 @@
     ),
     url('/medieval-pixel-world.png') center / cover fixed,
     var(--game-stone-900);
+  background-image:
+    linear-gradient(
+      180deg,
+      var(--game-charcoal-alpha-46),
+      var(--game-charcoal-alpha-24) 58%,
+      var(--game-charcoal-alpha-62)
+    ),
+    image-set(
+      url('/medieval-pixel-world.webp') type('image/webp'),
+      url('/medieval-pixel-world.png') type('image/png')
+    );
 }
 
 .game-stage::after {

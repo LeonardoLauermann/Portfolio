@@ -27,7 +27,7 @@
   border-radius: 24% 17% 27% 20% / 18% 28% 22% 29%;
   outline: 1px solid var(--game-stone-200);
   background:
-    url('/rock-title.jpg') center / 5rem 5rem repeat,
+    var(--game-stone-texture) center / 5rem 5rem repeat,
     var(--game-stone-200);
   background-blend-mode: luminosity;
   box-shadow:

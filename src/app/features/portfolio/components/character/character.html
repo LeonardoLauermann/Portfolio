@@ -8,12 +8,16 @@
     (keydown.enter)="playMovement()"
     (keydown.space)="$event.preventDefault(); playMovement()"
   >
-    <img
-      class="wizard-avatar"
-      src="/wizard-leonardo.png"
-      alt=""
-      draggable="false"
-    />
+    <picture class="character-picture">
+      <source srcset="/wizard-leonardo.webp" type="image/webp" />
+      <img
+        class="wizard-avatar"
+        src="/wizard-leonardo.png"
+        alt=""
+        decoding="async"
+        draggable="false"
+      />
+    </picture>
     <span class="character-tooltip" aria-hidden="true">leo</span>
   </div>
   <div
@@ -25,12 +29,16 @@
     (keydown.enter)="playMovement()"
     (keydown.space)="$event.preventDefault(); playMovement()"
   >
-    <img
-      class="archer-avatar"
-      src="/archer-companion.png"
-      alt=""
-      draggable="false"
-    />
+    <picture class="character-picture">
+      <source srcset="/archer-companion.webp" type="image/webp" />
+      <img
+        class="archer-avatar"
+        src="/archer-companion.png"
+        alt=""
+        decoding="async"
+        draggable="false"
+      />
+    </picture>
     <span class="character-tooltip" aria-hidden="true">alexia</span>
   </div>
   <div
@@ -42,12 +50,16 @@
     (keydown.enter)="playMovement()"
     (keydown.space)="$event.preventDefault(); playMovement()"
   >
-    <img
-      class="cat-companions"
-      src="/cat-companions.png"
-      alt=""
-      draggable="false"
-    />
+    <picture class="character-picture">
+      <source srcset="/cat-companions.webp" type="image/webp" />
+      <img
+        class="cat-companions"
+        src="/cat-companions.png"
+        alt=""
+        decoding="async"
+        draggable="false"
+      />
+    </picture>
     <span class="character-tooltip" aria-hidden="true">gatuno e legolas</span>
   </div>
   <span class="wizard-spark" aria-hidden="true">✦</span>

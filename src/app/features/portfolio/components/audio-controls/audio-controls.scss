@@ -26,7 +26,7 @@
       var(--game-charcoal-alpha-62),
       var(--game-charcoal-alpha-62)
     ),
-    url('/rock-title.jpg') center / 8rem 8rem,
+    var(--game-stone-texture) center / 8rem 8rem,
     linear-gradient(180deg, var(--game-stone-600), var(--game-stone-800));
   background-blend-mode: normal, luminosity, normal;
   color: var(--game-gold-300);
@@ -46,7 +46,7 @@
       var(--game-charcoal-alpha-46),
       var(--game-charcoal-alpha-46)
     ),
-    url('/rock-title.jpg') center / 8rem 8rem,
+    var(--game-stone-texture) center / 8rem 8rem,
     linear-gradient(180deg, var(--game-stone-500), var(--game-stone-650));
   background-blend-mode: normal, luminosity, normal;
   color: var(--game-gold-200);

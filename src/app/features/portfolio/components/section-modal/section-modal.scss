@@ -15,7 +15,7 @@
       var(--game-charcoal-alpha-62),
       var(--game-charcoal-alpha-62)
     ),
-    url('/rock-title.jpg') 0 0 / 12rem 12rem repeat,
+    var(--game-stone-texture) 0 0 / 12rem 12rem repeat,
     repeating-linear-gradient(
       0deg,
       transparent 0 0.35rem,
@@ -73,7 +73,7 @@
       var(--game-charcoal-alpha-62),
       var(--game-charcoal-alpha-62)
     ),
-    url('/rock-title.jpg') center / 6rem 6rem,
+    var(--game-stone-texture) center / 6rem 6rem,
     var(--game-stone-800);
   background-blend-mode: normal, luminosity, normal;
   color: var(--game-gold-300);

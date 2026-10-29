@@ -12,7 +12,7 @@
   border-color: var(--game-ink-950);
   outline-color: var(--game-stone-100);
   background:
-    url('/rock-title.jpg') 0 0 / 14rem 14rem repeat,
+    var(--game-stone-texture) 0 0 / 14rem 14rem repeat,
     repeating-linear-gradient(
       90deg,
       transparent 0 3rem,
