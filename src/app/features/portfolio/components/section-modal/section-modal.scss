@@ -50,10 +50,19 @@
   flex: 0 0 auto;
   width: 2.5rem;
   height: 2.5rem;
+  padding: 0;
   place-items: center;
   border: 1px solid var(--game-stone-200);
   background: var(--game-stone-800);
   color: var(--game-gold-300);
+}
+.modal-close .material-symbols-outlined {
+  display: grid;
+  width: 1.25rem;
+  height: 1.25rem;
+  place-items: center;
+  font-size: 1.25rem;
+  line-height: 1;
 }
 .modal-content-scroll {
   overflow-y: auto;
