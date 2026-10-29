@@ -1,230 +1,232 @@
 # Arquitetura — Portfólio RPG com Angular
 
-> Portfólio híbrido inspirado na experiência de MMORPGs clássicos, especialmente Old School RuneScape (OSRS), com identidade visual própria.
+> Proposta de evolução do portfólio existente, inspirada em MMORPGs clássicos como Old School RuneScape, com identidade própria. O mundo e os painéis descritos abaixo ainda não estão implementados.
 
-## 1. Visão geral
+## 1. Estado atual e referências
 
-Criar uma SPA em Angular que combine um cenário 2D explorável com uma interface de RPG clássico. O visitante pode interagir com personagens e objetos do cenário ou acessar diretamente painéis que apresentam o perfil profissional, habilidades, projetos e formas de contato.
+O workspace Nx contém uma única aplicação, `portfolio`, em `src/`. O bootstrap standalone está em `src/main.ts`; `src/app/app.ts` usa `app.html` e `app.scss` e renderiza `NxWelcome`. As rotas em `app.routes.ts` estão vazias. O scaffold não é conteúdo profissional aprovado.
 
-**Objetivos de experiência:**
-- Apresentar conteúdo profissional sem obrigar o visitante a jogar.
-- Manter a estética retrô com navegação acessível, responsiva e rápida.
-- Permitir explorar um pequeno mundo, abrir menus e interagir com NPCs.
-- Evitar copiar sprites, músicas, marcas ou interfaces proprietárias do OSRS; criar assets próprios ou devidamente licenciados.
+Após a atualização de 29/10/2026, o lockfile resolve Angular 22.2.4, CLI e build 22.2.5, Nx 24.0.2, TypeScript 6.0.3 e RxJS 7.8.2. Confirme sempre [package.json](../package.json), [package-lock.json](../package-lock.json), [project.json](../project.json) e [nx.json](../nx.json): números em referências e skills podem ficar desatualizados.
 
-## 2. Stack
+A base usa SCSS e renderização no cliente. Não há engine 2D, GSAP, Howler.js, CDK, Angular Material, Angular Aria, framework CSS, biblioteca de ícones, backend, cliente HTTP configurado, SSR, prerender ou hidratação. Não há alvo de testes automatizados ou configuração E2E; o script `npm test` não representa uma suíte funcional.
 
-| Tecnologia | Papel |
-| --- | --- |
-| Angular + TypeScript | SPA, componentes, roteamento e injeção de dependências |
-| Angular Signals | Estado reativo da interface e progresso local |
-| PixiJS | Renderização 2D do cenário, sprites e câmera |
-| GSAP | Animações de janelas, transições, tooltips e feedback visual |
-| SCSS | Design system retrô, temas e layout responsivo |
-| Angular CDK (opcional) | Overlays, foco e acessibilidade de painéis |
-| Howler.js (opcional) | Efeitos sonoros e áudio ambiente |
+Seguir [AGENTS.md](../AGENTS.md) e consultar as skills pertinentes antes de implementar:
 
-**Princípio:** PixiJS gerencia o mundo; Angular gerencia menus e conteúdo; GSAP anima a interface. O movimento contínuo do personagem deve ser atualizado pelo loop da engine, não por timelines GSAP.
+| Skill                                                                                            | Responsabilidade                                                     |
+| ------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------- |
+| [angular-developer](../.agent/skills/angular-developer/SKILL.md)                                 | Componentes, estado, rotas e APIs compatíveis com a versão instalada |
+| [angular-cdk](../.agent/skills/angular-cdk/SKILL.md)                                             | Avaliar overlays e foco quando HTML nativo não atender               |
+| [design-md](../.agent/skills/design-md/SKILL.md)                                                 | Separar identidade implementada de proposta visual                   |
+| [portfolio-performance](../.agent/skills/portfolio-performance/SKILL.md)                         | Budgets, carregamento e medições reproduzíveis                       |
+| [portfolio-integrations](../.agent/skills/portfolio-integrations/SKILL.md)                       | Conteúdo confirmado, contratos e contato real                        |
+| [context-engineering](../.agent/skills/context-engineering/SKILL.md)                             | Distinguir implementação, proposta e decisões pendentes              |
+| [debugging-and-error-recovery](../.agent/skills/debugging-and-error-recovery/SKILL.md)           | Diagnosticar falhas preservando alterações locais                    |
+| [observability-and-instrumentation](../.agent/skills/observability-and-instrumentation/SKILL.md) | Diagnóstico local, dados mínimos e descarte de recursos              |
 
-## 3. Layout
+## 2. Objetivo e conteúdo
 
-```text
-+---------------------------------------------------------------+
-| TOP BAR: Personagem | Level | GitHub | LinkedIn | Config      |
-+-------------------------------------------+-------------------+
-|                                           | GAME PANEL        |
-| GAME WORLD (PixiJS)                       |                   |
-| - Mapa / cenário                          | Skills            |
-| - Personagem                              | Inventory         |
-| - NPCs / objetos interativos              | Quest Log         |
-| - Interações                              | Character         |
-|                                           |                   |
-+-------------------------------------------+-------------------+
-| ACTION BAR: diálogo | dicas | atalhos | áudio                 |
-+---------------------------------------------------------------+
-```
+Evoluir a SPA existente para combinar conteúdo profissional em HTML com um cenário 2D opcional. O visitante deve acessar apresentação, projetos, competências e contato diretamente, sem mover personagem, concluir missões ou habilitar áudio.
 
-Em telas pequenas, o cenário ocupa a área principal e os painéis aparecem como drawers ou modais; a navegação direta permanece sempre disponível.
+Usar português nos textos ao visitante e inglês nos nomes de código. Publicar somente fatos, experiências, resultados e links confirmados no repositório ou fornecidos pelo usuário. A metáfora RPG não autoriza inventar qualificações, clientes, métricas ou níveis de domínio.
 
-## 4. Mapeamento de conteúdo
+| Seção em português | Metáfora RPG opcional  | Conteúdo permitido                                       |
+| ------------------ | ---------------------- | -------------------------------------------------------- |
+| Sobre mim          | Ficha do personagem    | Apresentação e especialidades confirmadas                |
+| Competências       | Habilidades            | Descrições reais, sem notas de proficiência inventadas   |
+| Projetos           | Diário de missões      | Estado, desafios, stack, resultados e links verificáveis |
+| Experiência        | Diário de aventuras    | Experiências documentadas ou fornecidas                  |
+| Ferramentas        | Inventário             | Tecnologias efetivamente utilizadas                      |
+| Contato            | Diálogo com personagem | Canais confirmados, também disponíveis fora do cenário   |
 
-| Conteúdo profissional | Representação RPG |
-| --- | --- |
-| Sobre mim | Character Profile |
-| Tecnologias e competências | Skills |
-| Projetos | Quest Log |
-| Experiência profissional | Adventure Log |
-| Ferramentas e stack | Inventory |
-| Contato | NPC Dialogue |
+Rótulos claros acompanham as metáforas. Currículo, redes e informações profissionais dependem de conteúdo confirmado; não criar destinos fictícios. Assets devem ser próprios ou licenciados, com origem e licença registradas. Não reproduzir sprites, músicas, marcas ou interfaces proprietárias do OSRS.
 
-### Exemplos de interação
+## 3. Stack e dependências
 
-- **Skills:** grade de habilidades com ícones, nível simbólico e descrição real da experiência.
-- **Quests:** projetos com estado (concluído/em andamento), desafios, stack, resultados e links.
-- **Inventory:** tecnologias e ferramentas organizadas em slots clicáveis.
-- **NPC Dialogue:** conversas curtas que levam a seções do portfólio.
-- **Character Profile:** apresentação, especialidades, currículo e redes profissionais.
+| Recurso                  | Decisão                                                                                                       |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------- |
+| Angular, TypeScript e Nx | Base instalada; reutilizar bootstrap, componentes, router e injeção de dependências                           |
+| Signals e `computed`     | Estado local e derivado quando houver interação; conteúdo estático não exige serviço                          |
+| SCSS e CSS               | Base visual; preferir CSS para transições simples                                                             |
+| PixiJS                   | Candidato para a exploração futura; avaliar necessidade, compatibilidade, bundle e descarte antes de instalar |
+| GSAP                     | Candidato somente para sequências que CSS não resolva adequadamente                                           |
+| Angular CDK              | Candidato para foco ou overlays complexos; não implica instalar Material                                      |
+| Howler.js                | Candidato se o áudio justificar a dependência; considerar APIs nativas para casos simples                     |
 
-## 5. Arquitetura de componentes
+Nenhuma biblioteca candidata está instalada ou é pré-requisito do MVP. Referências genéricas não autorizam instalações. Conferir a documentação oficial da versão escolhida no momento da implementação.
+
+Se adotada, a engine gerencia cena, câmera, colisões e atualização contínua; Angular gerencia conteúdo e navegação. Movimento por frame não depende de timelines de animação de interface nem deve propagar coordenadas continuamente para Signals.
+
+## 4. Layout e identidade
+
+No desktop, a proposta combina cabeçalho com navegação direta, exploração opcional e painéis de conteúdo. No mobile, priorizar leitura e navegação; o visitante pode ativar o cenário. Som e movimento devem ter controles acessíveis fora do mundo.
+
+Definir paleta, tipografia, contraste, espaçamento e estados a partir de referências aprovadas e registrar as decisões em um futuro `DESIGN.md`. O visual de `NxWelcome` é scaffold, não identidade final. Usar SCSS local e `src/styles.scss` para regras globais; não importar sistemas visuais de outros produtos.
+
+## 5. Organização incremental
+
+Manter os arquivos existentes. Criar diretórios somente quando responsabilidade ou reutilização justificar, sem gerar outra aplicação ou bibliotecas compartilhadas antecipadamente.
 
 ```text
 src/
-├── app/
-│   ├── core/
-│   │   ├── models/
-│   │   │   ├── player.model.ts
-│   │   │   ├── skill.model.ts
-│   │   │   ├── quest.model.ts
-│   │   │   └── interaction.model.ts
-│   │   └── services/
-│   │       ├── game-state.service.ts
-│   │       ├── interaction.service.ts
-│   │       └── audio.service.ts
-│   ├── game/
-│   │   ├── engine/
-│   │   │   ├── game-engine.ts
-│   │   │   ├── player-controller.ts
-│   │   │   ├── camera-controller.ts
-│   │   │   └── collision-system.ts
-│   │   ├── scenes/
-│   │   │   └── village.scene.ts
-│   │   └── components/
-│   │       └── game-canvas/
-│   ├── features/
-│   │   ├── character/
-│   │   ├── skills/
-│   │   ├── inventory/
-│   │   ├── quests/
-│   │   ├── dialogue/
-│   │   └── settings/
-│   ├── shared/
-│   │   ├── components/
-│   │   │   ├── game-window/
-│   │   │   ├── game-tooltip/
-│   │   │   └── game-button/
-│   │   └── animations/
-│   │       └── gsap-animations.ts
-│   ├── layout/
-│   │   └── game-shell/
-│   └── app.routes.ts
-└── assets/
-    ├── sprites/
-    ├── maps/
-    ├── icons/
-    ├── audio/
-    └── fonts/
+├── main.ts
+├── styles.scss
+└── app/
+    ├── app.ts / app.html / app.scss
+    ├── app.config.ts
+    ├── app.routes.ts
+    ├── features/                 # Proposta: conteúdo profissional
+    │   ├── profile/
+    │   ├── skills/
+    │   ├── projects/
+    │   └── contact/
+    ├── game/                     # Proposta posterior: exploração opcional
+    │   ├── game-canvas/
+    │   ├── engine/
+    │   └── scenes/
+    └── shared/                   # Somente com reutilização concreta
+        └── game-window/
+public/                           # Diretório de assets configurado
+├── favicon.ico                   # Existente
+├── sprites/                      # Propostos
+├── maps/
+├── audio/
+└── fonts/
 ```
 
-### Responsabilidades
+Seguir nomes como `profile.ts`, `profile.html` e `profile.scss`, preservando o padrão de `app.ts`. Dados locais tipados podem ficar junto da funcionalidade. Não criar automaticamente camadas `core/models/services`, fachadas ou estado global para conteúdo estático.
 
-- **GameShellComponent:** organiza mundo, HUD e painéis.
-- **GameCanvasComponent:** inicializa e destrói o PixiJS no ciclo de vida do Angular.
-- **GameEngine:** coordena ticker, cena e recursos gráficos.
-- **PlayerController:** entrada de teclado/toque, movimento e colisões.
-- **InteractionService:** traduz interações com NPCs e objetos em ações de UI.
-- **GameStateService:** Signals para painel ativo, diálogo, preferências e progresso local.
-- **GameWindowComponent:** janela reutilizável com cabeçalho, conteúdo e botão fechar.
-- **SkillsPanelComponent:** lista e detalha habilidades.
-- **InventoryPanelComponent:** exibe tecnologias em slots.
-- **QuestLogComponent:** lista projetos e abre seus detalhes.
-- **DialogueComponent:** mostra falas e opções de navegação.
+O build copia `public/` para a raiz da saída. Se criado, `public/sprites/player.png` será referenciado como `sprites/player.png`, considerando o base URL do deploy. Não usar `src/assets` sem alterar deliberadamente a configuração.
 
-## 6. Fluxo de dados
+Responsabilidades propostas:
+
+- O shell organiza navegação, conteúdo e exploração.
+- Componentes de seção apresentam dados profissionais em HTML semântico.
+- `GameCanvas` inicializa a engine após a renderização do host e a descarta ao sair. Falha de inicialização mantém o conteúdo acessível.
+- `GameEngine` coordena recursos e loop sem manipular componentes Angular.
+- `PlayerController` trata entrada e limites do mundo sem capturar teclas quando o foco estiver em campos ou controles.
+- Extrair serviço de interação somente quando múltiplos consumidores precisarem traduzir eventos da engine em navegação.
+- Extrair janela compartilhada somente quando existir um padrão real de painéis e foco.
+
+## 6. Navegação e estado
+
+Começar com navegação semântica entre seções. Adicionar rotas e carregamento lazy quando houver páginas ou custo que os justifique. Quando houver rotas, manter endereço, histórico e botão Voltar coerentes; o mesmo conteúdo deve abrir por menu e pelo mundo.
 
 ```mermaid
 flowchart TD
-    A[Entrada do usuário] --> B{Origem}
-    B -->|Mundo| C[PixiJS / Interações]
-    B -->|Menus| D[Componentes Angular]
-    C --> E[InteractionService]
-    D --> F[GameStateService]
-    E --> F
-    F --> G[Signals]
-    G --> H[Painéis Angular]
-    H --> I[GSAP / Transições]
+    A[Navegação direta em HTML] --> C[Ação de navegação Angular]
+    B[Mundo opcional] --> E[Evento semântico da engine]
+    E --> C
+    C --> D[Estado local ou router]
+    D --> F[Conteúdo profissional em HTML]
 ```
 
-**Regra de acoplamento:** a engine emite eventos sem manipular diretamente componentes Angular. Os serviços traduzem os eventos para estado observável por Signals.
+Signals representam somente estado de interface reativo. Se a rota já identifica a seção aberta, não duplicar essa fonte de verdade. Coordenadas e animação contínua ficam na engine.
 
-## 7. Estado sugerido
+Exemplo de estado possível, ainda não implementado:
 
 ```ts
-type PanelId = 'character' | 'skills' | 'inventory' | 'quests' | 'settings';
+type PanelId = 'profile' | 'skills' | 'projects' | 'contact' | 'settings';
 
 interface PortfolioState {
   activePanel: PanelId | null;
   activeNpcId: string | null;
   soundEnabled: boolean;
-  reducedMotion: boolean;
 }
 ```
 
-Dados de projetos, habilidades e itens podem começar em arquivos TypeScript/JSON locais, tipados por interfaces. Não é necessário backend no MVP.
+Som começa desabilitado. Movimento reduzido acompanha `prefers-reduced-motion`; preferências adicionais devem ter semântica clara. Persistência local é opcional, limitada a preferências não sensíveis, tolerante a armazenamento indisponível e desnecessária para ler o portfólio. O MVP não exige conta, backend ou banco de dados.
 
-## 8. Estratégia de animação
+## 7. Acessibilidade e animação
 
-**PixiJS:** movimento do personagem, câmera, cenário, animação de sprites e indicadores de interação.
+- Usar títulos, landmarks, links e botões nativos; texto essencial fica em HTML, fora do canvas.
+- Garantir teclado, foco visível e nomes acessíveis. Todo hotspot precisa de alternativa direta em HTML.
+- Modais exigem foco inicial, contenção, Escape e retorno ao acionador; painéis não modais não prendem o foco. Avaliar controles nativos antes de CDK.
+- Suportar toque sem depender de hover, arraste ou atalhos como único meio de operação.
+- Respeitar movimento reduzido, permitir pausar exploração e não usar animação como único indicador de estado.
+- Ativar áudio somente por ação do visitante, com volume e opção de desligar.
 
-**GSAP:** entrada e saída de painéis, alternância de abas, notificações, efeitos de hover e sequências de apresentação.
+Preferir CSS para efeitos simples. Animações dependentes do DOM usam o ciclo de renderização Angular apropriado, com limpeza na destruição. Se GSAP for justificado, descartar contextos e timelines.
 
-**Angular:** componentes e estado; usar `afterNextRender` quando a animação depender do DOM e limpar animações ao destruir componentes, por exemplo com `gsap.context().revert()`.
+A migração para Angular 22 preservou o comportamento anterior com `ChangeDetectionStrategy.Eager` nos componentes existentes. Alterações futuras dessa estratégia exigem avaliação própria; a atualização de dependências não equivale à adoção automática de novos padrões.
 
-Respeitar `prefers-reduced-motion`; não usar animações como único indicador de estado.
+## 8. Performance e resiliência
 
-## 9. Acessibilidade e performance
+O conteúdo deve funcionar antes do download da engine. Carregar mundo, áudio e assets pesados sob demanda. Dividir código quando houver benefício medido, sem fragmentar excessivamente a página.
 
-- Menus navegáveis por teclado, com rótulos e foco visível.
-- Alternativa direta ao cenário para acessar todo o conteúdo.
-- Contraste adequado, texto legível e áudio desligado por padrão.
-- Carregar assets do cenário sob demanda; manter spritesheets otimizadas.
-- Pausar ou reduzir atualizações da engine quando a aba estiver oculta.
-- Destruir ticker, listeners, texturas próprias e instâncias PixiJS ao desmontar o canvas.
-- Testar uso por toque e layouts móveis desde o início.
-- Priorizar conteúdo indexável em HTML Angular; não deixar textos essenciais apenas no canvas.
+| Budget em `project.json` | Aviso  | Erro |
+| ------------------------ | ------ | ---- |
+| Bundle inicial           | 500 kB | 1 MB |
+| Estilo por componente    | 4 kB   | 8 kB |
 
-## 10. Roadmap
+Não aumentar limites para esconder regressões. Otimizar spritesheets, imagens e fontes e reservar dimensões para evitar deslocamento de layout. Pausar ticker em aba oculta ou com exploração desativada. Descartar listeners, observers, timers, assinaturas, instâncias e texturas pertencentes à cena ao desmontá-la.
 
-### Fase 1 — MVP navegável
+Comparar carregamento, interação e memória com viewport, rede e cache equivalentes. Não há Lighthouse ou métricas de produção configurados. HTML renderizado no cliente não equivale a SSR ou garantia de indexação; avaliar prerender ou SSR somente quando o requisito de descoberta justificar.
 
-- [ ] Criar projeto Angular com SCSS.
-- [ ] Definir paleta, tipografia e componentes básicos.
-- [ ] Implementar GameShell e HUD responsivos.
-- [ ] Criar painéis Character, Skills, Inventory e Quests.
-- [ ] Alimentar os painéis com conteúdo real.
-- [ ] Adicionar transições GSAP e navegação por teclado.
+## 9. Integrações e diagnóstico
 
-### Fase 2 — Mundo interativo
+Começar com conteúdo local tipado. Contato usa links confirmados; `mailto` somente com endereço fornecido. Formulário de envio depende de serviço e contrato reais, com carregamento, erro, repetição e sucesso conforme a resposta. Sem contrato, não inventar endpoints nem mostrar sucesso fictício.
 
-- [ ] Integrar PixiJS ao GameCanvasComponent.
-- [ ] Criar mapa pequeno e personagem com sprites originais/licenciados.
-- [ ] Implementar movimentação, câmera e limites do mapa.
-- [ ] Adicionar NPCs e hotspots que abrem painéis.
-- [ ] Sincronizar eventos do mundo com Angular Signals.
+Não incluir segredos no bundle ou em `public/`. Começar o diagnóstico por console, rede e Performance do navegador. Atualmente existem `provideBrowserGlobalErrorListeners()` e registro de falha de bootstrap no console; não há coletor remoto, analytics ou tracing configurados. Não registrar dados pessoais, tokens ou corpos de formulário.
 
-### Fase 3 — Polimento
+Em bancos, somente `SELECT` é permitido. Não executar procedures, escritas, migrações de banco ou seeds. Validações locais não devem enviar contato real nem alterar dados externos.
 
-- [ ] Adicionar diálogos, sons opcionais e feedback visual.
-- [ ] Refinar responsividade e acessibilidade.
-- [ ] Otimizar carregamento, renderização e limpeza de recursos.
-- [ ] Publicar e testar com visitantes reais.
+## 10. Roadmap e critérios de aceite
 
-## 11. Decisões recomendadas
+### Fase 1 — Conteúdo profissional em HTML
 
-1. **Começar pelos painéis Angular:** o portfólio já será útil antes de existir um mundo explorável.
-2. **Construir apenas uma cena pequena no MVP:** evita transformar o portfólio em um projeto de game completo.
-3. **Usar Signals como fonte da verdade da UI:** não duplicar estado entre engine e componentes.
-4. **Manter o mundo opcional:** visitantes podem ir diretamente para projetos, currículo e contato.
-5. **Criar identidade visual original:** inspiração em OSRS sem reproduzir assets protegidos.
+- [x] Reutilizar o workspace Angular/Nx existente com SCSS.
+- [ ] Confirmar apresentação, competências, projetos e canais de contato.
+- [ ] Definir identidade própria e registrar tokens e estados aprovados.
+- [ ] Substituir `NxWelcome` por seções responsivas.
+- [ ] Implementar navegação direta, teclado, foco e movimento reduzido.
+- [ ] Validar lint, build e fluxos manualmente no desktop e mobile.
 
-## 12. Comandos iniciais
+Aceite: conteúdo completo acessível sem cenário, som ou mecânicas de jogo; informações e links confirmados. Esta fase não exige engine ou biblioteca de animação.
+
+### Fase 2 — Exploração opcional
+
+- [ ] Avaliar engine e registrar necessidade, compatibilidade e impacto de bundle antes de instalar.
+- [ ] Criar uma cena pequena com assets próprios ou licenciados.
+- [ ] Implementar movimento, câmera, limites e interações equivalentes à navegação direta.
+- [ ] Manter conteúdo disponível em falhas de assets ou renderização.
+- [ ] Verificar pausa, descarte, teclado e toque.
+
+Aceite: explorar é opcional, nenhum conteúdo depende da engine e seu carregamento não bloqueia a leitura inicial.
+
+### Fase 3 — Polimento e publicação
+
+- [ ] Adicionar diálogos e áudio opcional quando agregarem valor.
+- [ ] Medir e otimizar carregamento, estabilidade visual e memória.
+- [ ] Revisar contraste, foco, mobile e movimento reduzido.
+- [ ] Definir hospedagem e validar URLs e fallback SPA no ambiente escolhido.
+
+Aceite: cumprir budgets e critérios de acesso ao conteúdo, com limitações registradas. Hospedagem, domínio e deploy ainda não estão definidos.
+
+## 11. Comandos e validação
+
+Executar na raiz deste repositório, sem `ng new` ou criação de outra aplicação:
 
 ```bash
-npx @angular/cli@latest new portfolio-rpg --style=scss --routing
-cd portfolio-rpg
-npm install gsap pixi.js
-# Opcionais:
-npm install howler
-npm install @angular/cdk
+npm ci
+npx nx show project portfolio
+npx nx serve portfolio
+npx nx lint portfolio
+npx nx build portfolio
+npx nx build portfolio --configuration=development
+npx nx run portfolio:serve-static
 ```
 
-**Resultado esperado:** um portfólio funcional, acessível e responsivo que se apresenta como um RPG clássico, com uma interface Angular independente e um mundo 2D progressivamente enriquecido.
+`npm start` e `npm run build` também estão disponíveis. O lint é inferido por `@nx/eslint/plugin` e executa `eslint ./src`, com inputs complementares em `project.json`. A saída é `dist/portfolio`; o servidor estático serve `dist/portfolio/browser` com fallback SPA.
+
+Código exige lint e build dos alvos afetados. Interface exige inspeção manual de leitura, navegação, teclado, foco, mobile, movimento reduzido, links e console. Quando houver mundo, incluir falha de assets, saída e reentrada na cena, pausa e descarte. Infraestrutura de testes é uma decisão separada quando solicitada ou justificada; não relatar testes automatizados como aprovados sem runner e alvo funcionais.
+
+Documentação exige conferir links locais, formatação e `git diff --check`. Registrar resultados e verificações não executadas; proposta e histórico não equivalem a validação atual.
+
+### Verificações da atualização em 29/10/2026
+
+- Migrações oficiais de Angular e Nx aplicadas e lockfile atualizado.
+- Grafo consultado com daemon e cache de grafo desabilitados; lint inferido preserva `eslint ./src`.
+- Lint e builds de produção e desenvolvimento aprovados sem cache de tarefas.
+- O estilo do scaffold `NxWelcome` tem 7,03 kB: acima do aviso de 4 kB, abaixo do erro de 8 kB. Budgets preservados.
+- `npm audit` reportou 8 ocorrências na cadeia de ferramentas de desenvolvimento associadas a `undici` utilizado pelo Nx: 7 moderadas e 1 alta. Não foi aplicado downgrade ou correção forçada dessa cadeia.
+- Não houve teste automatizado, por ausência de alvo configurado, nem inspeção visual em navegador nesta atualização.

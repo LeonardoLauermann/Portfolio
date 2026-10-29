@@ -26,6 +26,8 @@ export default [
   {
     files: ['**/*.ts'],
     rules: {
+      // Preserve the pre-v22 behavior retained by Angular's official migration.
+      '@angular-eslint/prefer-on-push-component-change-detection': 'off',
       '@angular-eslint/directive-selector': [
         'error',
         {

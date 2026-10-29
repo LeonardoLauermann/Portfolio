@@ -24,7 +24,6 @@ This skill enforces Angular naming conventions for components, services, directi
   - `product-list.ts`
   - `product-list.html`
   - `product-list.css`
-- **Test Files**: Continue to use the same base name with the `.spec.ts` suffix (e.g., `product-list.spec.ts` for `product-list.ts`).
 
 ### 2. Core Directory (Application Foundation)
 

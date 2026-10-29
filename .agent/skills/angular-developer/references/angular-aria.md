@@ -658,47 +658,7 @@ Target `[aria-selected="true"]` for selected cells and `:focus-visible` for the 
 }
 ```
 
-## 9. Testing with Component Harnesses
-
-Angular Aria provides standard Component Harnesses (based on `@angular/cdk/testing`) to make unit testing clean, robust, and decoupled from DOM structural details.
-
-**Imports:**
-
-```ts
-import {HarnessLoader} from '@angular/cdk/testing';
-import {TestbedHarnessEnvironment} from '@angular/cdk/testing/testbed';
-import {AccordionGroupHarness, AccordionHarness} from '@angular/aria/accordion/testing';
-import {ListboxHarness, ListboxOptionHarness} from '@angular/aria/listbox/testing';
-```
-
-### Example: Testing an Accordion with Harnesses
-
-```ts
-describe('MyAccordionComponent', () => {
-  let fixture: ComponentFixture<MyAccordionComponent>;
-  let loader: HarnessLoader;
-
-  beforeEach(async () => {
-    fixture = TestBed.createComponent(MyAccordionComponent);
-    await fixture.whenStable();
-    loader = TestbedHarnessEnvironment.loader(fixture);
-  });
-
-  it('should expand accordion on toggle', async () => {
-    // Get the harness by its trigger title
-    const accordion = await loader.getHarness(AccordionHarness.with({title: 'Section 1'}));
-
-    expect(await accordion.isExpanded()).toBeFalse();
-
-    // Expand the accordion
-    await accordion.expand();
-
-    expect(await accordion.isExpanded()).toBeTrue();
-  });
-});
-```
-
-## 10. Integration with Signal Forms
+## 9. Integration with Signal Forms
 
 Because Angular Aria directives leverage Angular's modern `model()` signals for managing interactive values, they integrate **out-of-the-box** with Angular's new Signal Forms (`@angular/forms/signals`).
 
