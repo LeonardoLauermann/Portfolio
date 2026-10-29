@@ -1,8 +1,12 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  computed,
   inject,
+  OnDestroy,
+  OnInit,
   output,
+  signal,
 } from '@angular/core';
 import { CdkMenu, CdkMenuItem } from '@angular/cdk/menu';
 import { SoundService } from '../../../../shared/audio/sound.service';
@@ -30,9 +34,11 @@ interface MenuOption {
   templateUrl: './main-menu.html',
   styleUrl: './main-menu.scss',
 })
-export class MainMenu {
+export class MainMenu implements OnInit, OnDestroy {
   readonly sectionSelected = output<PortfolioSection>();
   private readonly sound = inject(SoundService);
+  private readonly mobileQuery = window.matchMedia('(max-width: 991.98px)');
+  readonly isMobile = signal(this.mobileQuery.matches);
   readonly options: readonly MenuOption[] = [
     {
       section: 'about',
@@ -70,6 +76,22 @@ export class MainMenu {
       icon: '/icons/menu/contact-flag.svg',
     },
   ];
+  readonly visibleOptions = computed(() =>
+    this.options.filter(
+      (option) => this.isMobile() || option.section !== 'skills',
+    ),
+  );
+  private readonly updateViewport = (event: MediaQueryListEvent): void => {
+    this.isMobile.set(event.matches);
+  };
+
+  ngOnInit(): void {
+    this.mobileQuery.addEventListener('change', this.updateViewport);
+  }
+
+  ngOnDestroy(): void {
+    this.mobileQuery.removeEventListener('change', this.updateViewport);
+  }
 
   select(section: PortfolioSection): void {
     this.sound.playUi();

@@ -3,7 +3,7 @@
     Escolha uma opção:
   </h2>
   <div class="d-grid gap-2" cdkMenu aria-label="Opções do portfólio">
-    @for (option of options; track option.section) {
+    @for (option of visibleOptions(); track option.section) {
     <button
       class="menu-option btn d-flex align-items-center gap-3 text-start"
       cdkMenuItem

@@ -23,7 +23,7 @@ O cenário mantém tons terrosos, verde de vale e azul de estandartes. Painéis 
 
 ## Layout e tipografia
 
-Em telas largas, o layout distribui ficha do personagem, título, habilidades, personagem, menu central, mensagem de boas-vindas e foco profissional em três colunas. Em tablets e celulares, os blocos passam a uma coluna; o quadro lateral de habilidades fica oculto e aparece em modal central quando a opção Habilidades é selecionada. A mensagem neutra de boas-vindas fica logo acima do menu no mobile, enquanto cada opção abre sua própria modal. O controle de áudio flutua no canto inferior direito em desktop e mobile. O menu tem altura adequada ao toque e o personagem reduz de tamanho sem desaparecer.
+Em telas largas, o layout distribui ficha do personagem, título, habilidades, personagem, menu central, mensagem de boas-vindas e foco profissional em três colunas. A opção Habilidades não aparece no menu desktop, pois o quadro lateral já está visível. Em tablets e celulares, os blocos passam a uma coluna; o quadro lateral fica oculto e a opção Habilidades abre a lista em modal. A mensagem neutra de boas-vindas fica logo acima do menu no mobile, enquanto cada opção abre sua própria modal. O controle de áudio flutua no canto inferior direito em desktop e mobile. O menu tem altura adequada ao toque e o personagem reduz de tamanho sem desaparecer.
 
 O texto usa Courier New e fontes monoespaçadas do sistema para reforçar a interface retrô; o título contrasta com letras serifadas em placas de pedra e o subtítulo dourado. Bootstrap 5.3 fornece container, grid, utilitários de espaço e flex, botões e recursos de acessibilidade; SCSS local fica para os materiais, a composição de tela e a pixel art.
 
