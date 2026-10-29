@@ -5,4 +5,4 @@ Os SVGs em `public/icons/skills/` e `public/icons/menu/` são vetorizados a part
 Fonte: https://opengameart.org/content/496-pixel-art-icons-for-medievalfantasy-rpg
 Licença CC0: https://creativecommons.org/publicdomain/zero/1.0/
 
-`dotnet-bars.svg`, `git-tree.svg`, `objective-group.svg`, `contact-flag.svg` e `skills/problem-solving.svg` são desenhos SVG originais criados para completar a direção visual do menu e do quadro de habilidades.
+`dotnet-bars.svg`, `git-tree.svg`, `objective-group.svg`, `contact-flag.svg`, `skills/problem-solving.svg` e `skills/react-rune.svg` são desenhos SVG originais criados para completar a direção visual do menu e do quadro de habilidades.

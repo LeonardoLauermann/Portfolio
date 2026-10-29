@@ -11,18 +11,31 @@
     />
     Habilidades
   </h2>
+  @for (group of groups; track group.name) {
+  <h3 class="skill-category">{{ group.name }}</h3>
   <ul class="list-unstyled mb-0">
-    @for (skill of skills; track skill.name) {
-    <li>
+    @for (skill of group.skills; track skill.name) {
+    <li
+      class="skill-row"
+      tabindex="0"
+      [attr.aria-label]="skill.name + ': nível ' + skill.level + ', valor ilustrativo' + (skill.details ? ': ' + skill.details : '')"
+    >
       <img
         class="skill-icon"
-        [src]="'/icons/skills/' + skill.icon + '.svg'"
+        [src]="iconPath(skill.icon ?? group.icon)"
         alt=""
         aria-hidden="true"
       />
       <span>{{ skill.name }}</span>
+      @if (skill.level !== undefined) {
       <strong>{{ skill.level }}</strong>
+      }
+      <span class="skill-tooltip" role="tooltip" aria-hidden="true">
+        {{ skill.name }} · Nível {{ skill.level }} (valor ilustrativo)@if
+        (skill.details) { · {{ skill.details }}}
+      </span>
     </li>
     }
   </ul>
+  }
 </section>

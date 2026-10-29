@@ -47,12 +47,22 @@
           [attr.aria-label]="'Abrir projeto: ' + entry.heading"
           >Abrir projeto ↗</a
         >
+        } @if (entry.details?.length) {
+        <ul class="entry-details mb-0">
+          @for (detail of entry.details; track detail) {
+          <li>{{ detail }}</li>
+          }
+        </ul>
         }
       </article>
-      } @if (content[section()].email) {
-      <a class="modal-link" [href]="'mailto:' + content[section()].email">
-        {{ content[section()].email }}
-      </a>
+      } @for (link of content[section()].links ?? []; track link.url) {
+      <a
+        class="modal-link contact-link"
+        [href]="link.url"
+        [attr.target]="link.external ? '_blank' : null"
+        [attr.rel]="link.external ? 'noopener noreferrer' : null"
+        >{{ link.label }} @if (link.external) { ↗ }</a
+      >
       }
     </div>
     }

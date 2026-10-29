@@ -82,6 +82,12 @@
   padding: 0.75rem 0;
   border-bottom: 1px solid var(--game-stone-edge-alpha-22);
 }
+.entry-details {
+  padding-left: 1.25rem;
+}
+.entry-details li {
+  margin-top: 0.35rem;
+}
 .modal-entry strong,
 .modal-link {
   color: var(--game-gold-300);
@@ -89,6 +95,10 @@
 .modal-link {
   display: inline-block;
   font-weight: 700;
+}
+.contact-link {
+  display: block;
+  padding: 0.55rem 0;
 }
 .modal-link:focus-visible,
 .modal-close:focus-visible {

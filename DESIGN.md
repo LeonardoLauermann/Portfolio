@@ -36,17 +36,17 @@ O texto usa Courier New e fontes monoespaçadas do sistema para reforçar a inte
 - `features/portfolio/components/main-menu`: menu CDK que abre modais de seção.
 - `features/portfolio/components/section-modal`: conteúdo central com foco modal, Escape e botão de fechar.
 - `features/portfolio/components/character`: personagem em pixel art e ciclo de movimento GSAP.
-- `features/portfolio/components/skills`: competências e níveis conforme a imagem; oculta em mobile até ser aberta pelo menu.
+- `features/portfolio/components/skills`: competências do currículo agrupadas por área e destaques com níveis da referência; o quadro lateral fica oculto em mobile até ser aberto pelo menu.
 - `features/portfolio/components/dialogue`: mensagem neutra e permanente de boas-vindas.
 - `features/portfolio/components/objectives`: foco profissional baseado nas atividades descritas no currículo.
 
-Os componentes são standalone, `OnPush`, com arquivos `.ts`, `.html` e `.scss` em pastas por feature, gerados pelo Nx. O menu e a lista vertical de habilidades usam ícones SVG pixelados em CC0, documentados em `public/icons/SOURCES.md`; não há pontuações presumidas. GSAP anima a entrada dos painéis, o balanço ocioso e o deslocamento do personagem, além do brilho sobre as fogueiras já desenhadas ao lado da porta. O ciclo de vida do GSAP é encerrado ao destruir os componentes. A preferência do sistema por movimento reduzido desativa esses movimentos.
+Os componentes são standalone, `OnPush`, com arquivos `.ts`, `.html` e `.scss` em pastas por feature, gerados pelo Nx. O menu e a lista vertical de habilidades usam ícones SVG pixelados em CC0, documentados em `public/icons/SOURCES.md`. Os níveis exibidos nos destaques vieram da imagem de referência; as demais competências não recebem pontuação. GSAP anima a entrada dos painéis, o balanço ocioso e o deslocamento do personagem, além do brilho sobre as fogueiras já desenhadas ao lado da porta. O ciclo de vida do GSAP é encerrado ao destruir os componentes. A preferência do sistema por movimento reduzido desativa esses movimentos.
 
 Uma trilha original de fantasia retrô em loop combina melodia suave de flauta, arpejos de alaúde, acordes sustentados e percussão leve. Começa em volume baixo e sobe suavemente ao longo de oito segundos. O botão permite ligar/desligar o som; o controle de volume fica recolhido e abre ao selecionar Volume para ajustar a música de 0% a 60%. Os efeitos de interação têm volume separado e discreto. Os arquivos WAV são sintetizados para o projeto e a trilha ambiente pode ser regenerada com `npm run sounds:generate`. Se o navegador bloquear a reprodução automática, o serviço tenta novamente após a primeira interação.
 
 ## Conteúdo e limites
 
-Experiência, formação, tecnologias e e-mail vieram do currículo fornecido pelo autor. Os níveis 0–100 do painel de habilidades vieram da imagem de referência. O autor forneceu dois projetos de landing page e um catálogo de filmes sem reprodução, além de seus links. O currículo não declara metas futuras; o painel de foco descreve áreas de atuação documentadas.
+Resumo profissional, experiências, formação, competências e contatos vieram do currículo atualizado pelo autor. Os níveis dos destaques vieram da imagem de referência. O autor forneceu dois projetos de landing page e um catálogo de filmes sem reprodução, além de seus links.
 
 ## Referências locais
 
