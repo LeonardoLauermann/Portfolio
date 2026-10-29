@@ -1,0 +1,11 @@
+<section
+  class="stone-panel dialogue-panel p-3"
+  aria-live="polite"
+  aria-atomic="true"
+>
+  <div class="dialogue-scroll">
+    @for (paragraph of content.paragraphs; track paragraph) {
+    <p>{{ paragraph }}</p>
+    }
+  </div>
+</section>

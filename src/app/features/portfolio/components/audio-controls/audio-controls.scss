@@ -1,0 +1,40 @@
+:host {
+  display: block;
+}
+.audio-panel {
+  width: min(100%, 22rem);
+  margin-inline-start: auto;
+}
+.sound-control {
+  border: 1px solid var(--game-stone-100);
+  background: var(--game-stone-900);
+  color: var(--game-gold-300);
+  font:
+    0.75rem 'Courier New',
+    monospace;
+}
+.sound-control:hover,
+.sound-control:focus-visible {
+  background: var(--game-stone-550);
+  color: var(--game-gold-200);
+}
+.music-volume {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 0.25rem 0.45rem;
+  color: var(--game-parchment-200);
+  font:
+    0.7rem 'Courier New',
+    monospace;
+}
+.music-volume > span {
+  grid-column: 1 / -1;
+}
+.music-volume input {
+  width: 100%;
+  accent-color: var(--game-gold-400);
+}
+.music-volume output {
+  color: var(--game-gold-300);
+}

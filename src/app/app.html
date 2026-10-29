@@ -1,2 +1,19 @@
-<app-nx-welcome></app-nx-welcome>
-<router-outlet></router-outlet>
+<main class="game-stage container-fluid p-3 p-xl-4">
+  <a class="skip-link visually-hidden-focusable" href="#game-menu"
+    >Pular para o menu principal</a
+  >
+  <app-profile />
+  <app-hero />
+  <app-skills />
+
+  <app-character [moving]="isMoving()" />
+  <div class="door-fire door-fire-left" aria-hidden="true"></div>
+  <div class="door-fire door-fire-right" aria-hidden="true"></div>
+
+  <app-main-menu id="game-menu" (sectionSelected)="selectSection($event)" />
+  <app-dialogue />
+  @if (activeSection(); as section) {
+  <app-section-modal [section]="section" (closed)="closeSection()" />
+  }
+  <app-objectives />
+</main>

@@ -1,0 +1,34 @@
+:host {
+  grid-area: avatar;
+  align-self: end;
+  justify-self: center;
+  width: min(100%, 15rem);
+  height: clamp(16rem, 33vh, 22rem);
+}
+.character-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0.7rem 1rem 0.6rem var(--game-black-alpha-48));
+}
+.wizard-avatar {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+@media (max-width: 991.98px) {
+  :host {
+    width: min(45vw, 12rem);
+    height: 17rem;
+    justify-self: center;
+  }
+}
+@media (max-width: 575.98px) {
+  :host {
+    width: min(52vw, 11rem);
+    height: 14rem;
+  }
+}

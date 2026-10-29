@@ -1,0 +1,60 @@
+<dialog
+  #sectionDialog
+  class="stone-modal"
+  (close)="onClosed()"
+  aria-labelledby="section-title"
+>
+  <div class="modal-frame">
+    <header
+      class="d-flex align-items-center justify-content-between gap-3 mb-3"
+    >
+      @if (section() !== 'skills') {
+      <h2 id="section-title" class="modal-heading mb-0">
+        {{ content[section()].title }}
+      </h2>
+      } @else {
+      <span id="section-title" class="visually-hidden">Habilidades</span>
+      }
+      <button
+        class="modal-close btn"
+        type="button"
+        aria-label="Fechar janela"
+        autofocus
+        (click)="close()"
+      >
+        <span class="material-symbols-outlined" aria-hidden="true">close</span>
+      </button>
+    </header>
+
+    @if (section() === 'skills') {
+    <app-skills class="modal-skills" />
+    } @else {
+    <div class="modal-content-scroll">
+      @for (paragraph of content[section()].paragraphs; track paragraph) {
+      <p>{{ paragraph }}</p>
+      } @for (entry of content[section()].entries ?? []; track entry.heading) {
+      <article class="modal-entry">
+        <strong>{{ entry.heading }}</strong>
+        @if (entry.subtitle) {<span> — {{ entry.subtitle }}</span>} @if
+        (entry.description) {
+        <p class="mb-1">{{ entry.description }}</p>
+        } @if (entry.link) {
+        <a
+          class="modal-link"
+          [href]="entry.link"
+          target="_blank"
+          rel="noopener noreferrer"
+          [attr.aria-label]="'Abrir projeto: ' + entry.heading"
+          >Abrir projeto ↗</a
+        >
+        }
+      </article>
+      } @if (content[section()].email) {
+      <a class="modal-link" [href]="'mailto:' + content[section()].email">
+        {{ content[section()].email }}
+      </a>
+      }
+    </div>
+    }
+  </div>
+</dialog>

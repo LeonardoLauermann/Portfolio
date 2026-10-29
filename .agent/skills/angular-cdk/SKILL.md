@@ -5,11 +5,13 @@ metadata:
   version: '2.0'
 ---
 
-# CDK no portfólio
+# Angular CDK no Portfolio
 
-O projeto usa Angular ~21.2.0 e não declara @angular/cdk ou @angular/material. Confira package.json e lockfile antes de sugerir imports. Acessibilidade básica não exige CDK: priorize HTML semântico, controles nativos e teclado.
+Este workspace tem uma única aplicação portfolio, Angular 22.2 e Angular CDK 22.2.5. Não há Angular Material. Confirme as versões instaladas no manifesto e lockfile.
 
-Quando a necessidade justificar a dependência, escolha versão compatível e registre a razão. Não adicione Material por consequência. Importe somente recursos usados e mantenha SCSS no padrão existente.
+O menu central usa CdkMenu e CdkMenuItem para semântica ARIA, foco gerenciado e navegação por teclado. Reaproveite esse menu e sua apresentação de pedra; não crie interação paralela nem instale Angular Material.
+
+Importe apenas diretivas ou serviços usados e mantenha componentes standalone. Preserve utilitários Bootstrap e tokens de cor compartilhados. Em novos usos, verifique teclado, setas, Home/End, foco, nomes acessíveis, toque e movimento reduzido.
 
 Em overlays e diálogos, verifique posicionamento, Escape, foco inicial, contenção quando modal, retorno do foco e descarte. Drag-and-drop precisa de alternativa por teclado; virtualização exige volume e medição que a justifiquem.
 

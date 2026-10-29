@@ -1,1 +1,142 @@
-/* You can add global styles to this file, and also import other style files */
+@use 'sass:map';
+@use './styles/tokens';
+
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/variables-dark';
+@import 'bootstrap/scss/maps';
+@import 'bootstrap/scss/mixins';
+@import 'bootstrap/scss/utilities';
+$utilities: (
+  'display': map.get($utilities, 'display'),
+  'align-items': map.get($utilities, 'align-items'),
+  'gap': map.get($utilities, 'gap'),
+  'margin-bottom': map.get($utilities, 'margin-bottom'),
+  'margin-start': map.get($utilities, 'margin-start'),
+  'padding': map.get($utilities, 'padding'),
+  'text-align': map.get($utilities, 'text-align'),
+);
+@import 'bootstrap/scss/root';
+@import 'bootstrap/scss/reboot';
+@import 'bootstrap/scss/type';
+@import 'bootstrap/scss/containers';
+@import 'bootstrap/scss/buttons';
+@import 'bootstrap/scss/helpers/visually-hidden';
+@import 'bootstrap/scss/utilities/api';
+
+.material-symbols-outlined {
+  display: inline-block;
+  width: 1em;
+  font-family: 'Material Symbols Outlined';
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+  white-space: nowrap;
+  direction: ltr;
+  letter-spacing: normal;
+  text-transform: none;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: 'liga';
+}
+
+html,
+body {
+  min-width: 320px;
+  min-height: 100%;
+  margin: 0;
+  background: var(--game-ink-950);
+}
+body {
+  font-family: 'Courier New', monospace;
+  -webkit-font-smoothing: antialiased;
+}
+* {
+  scrollbar-color: var(--game-gold-500) var(--game-ink-900);
+  scrollbar-width: thin;
+}
+::-webkit-scrollbar {
+  width: 0.8rem;
+  height: 0.8rem;
+}
+::-webkit-scrollbar-track {
+  border: 1px solid var(--game-ink-950);
+  background: repeating-linear-gradient(
+    0deg,
+    var(--game-stone-950) 0 0.22rem,
+    var(--game-ink-900) 0.22rem 0.44rem
+  );
+}
+::-webkit-scrollbar-thumb {
+  min-height: 2rem;
+  border: 2px solid var(--game-ink-950);
+  outline: 1px solid var(--game-stone-200);
+  background: linear-gradient(
+    90deg,
+    var(--game-stone-500),
+    var(--game-gold-600),
+    var(--game-stone-500)
+  );
+}
+button,
+a {
+  touch-action: manipulation;
+}
+::selection {
+  background: var(--game-gold-selection);
+  color: var(--game-ink-900);
+}
+
+.stone-panel {
+  position: relative;
+  z-index: 2;
+  border: 0.2rem solid var(--game-ink-950);
+  outline: 1px solid var(--game-stone-200);
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0 0.38rem,
+      var(--game-white-alpha-02) 0.38rem 0.42rem
+    ),
+    linear-gradient(
+      145deg,
+      var(--game-stone-600),
+      var(--game-stone-900) 68%,
+      var(--game-stone-950)
+    );
+  box-shadow:
+    inset 0 0 0 0.18rem var(--game-stone-450),
+    inset 0 0 1.1rem var(--game-black-alpha-45),
+    0 0.45rem 1rem var(--game-black-alpha-46);
+}
+.panel-heading {
+  color: var(--game-gold-400);
+  font:
+    700 1rem 'Courier New',
+    monospace;
+  text-shadow: 1px 2px var(--game-ink-900);
+}
+.sound-toggle {
+  position: fixed;
+  z-index: 5;
+  right: 1rem;
+  bottom: 1rem;
+  border: 1px solid var(--game-stone-100);
+  background: var(--game-stone-900);
+  color: var(--game-gold-300);
+  font:
+    0.75rem 'Courier New',
+    monospace;
+}
+.sound-toggle:hover,
+.sound-toggle:focus-visible {
+  background: var(--game-stone-550);
+  color: var(--game-gold-200);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

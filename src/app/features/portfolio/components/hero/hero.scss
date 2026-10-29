@@ -1,0 +1,54 @@
+:host {
+  grid-area: title;
+  align-self: center;
+}
+.game-title {
+  position: relative;
+  padding: 0.25rem 2.5rem 0.75rem;
+  color: var(--game-gold-400);
+  text-shadow:
+    0 0.15rem var(--game-ink-900),
+    0 0 0.7rem var(--game-ink-950);
+}
+.game-logo {
+  position: relative;
+  z-index: 1;
+  font:
+    900 clamp(2.3rem, 5vw, 4.5rem) / 1 'Courier New',
+    monospace;
+  letter-spacing: 0.11em;
+  -webkit-text-stroke: 0.08rem var(--game-ink-900);
+  text-shadow:
+    0.12rem 0.12rem var(--game-ink-900),
+    -0.08rem -0.08rem var(--game-gold-200),
+    0 0.35rem 0.35rem var(--game-ink-950);
+}
+.game-subtitle {
+  font:
+    700 clamp(0.9rem, 1.7vw, 1.35rem) 'Courier New',
+    monospace;
+  letter-spacing: 0.2em;
+}
+.title-blade {
+  position: absolute;
+  top: 43%;
+  left: 10%;
+  width: 80%;
+  height: 0.5rem;
+  border: 0.12rem solid var(--game-ink-950);
+  background: linear-gradient(
+    var(--game-steel-light) 0 45%,
+    var(--game-steel-dark) 45%
+  );
+  transform: rotate(-16deg);
+  box-shadow: -1.4rem 0 0 -0.05rem var(--game-gold-600);
+}
+@media (max-width: 575.98px) {
+  .game-title {
+    padding-inline: 1rem;
+  }
+  .title-blade {
+    left: 8%;
+    width: 84%;
+  }
+}

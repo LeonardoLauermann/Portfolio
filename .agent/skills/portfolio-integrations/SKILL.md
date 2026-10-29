@@ -7,7 +7,7 @@ metadata:
 
 # Integrações do portfólio
 
-Confira dependências, providers em src/app/app.config.ts, serviços e contrato da tarefa. Atualmente não há cliente HTTP configurado, backend, schema OpenAPI ou serviço de contato no app. Não invente endpoints, chaves, perfis ou URLs.
+Este workspace contém somente o app portfolio. Confira dependências, providers em src/app/app.config.ts, serviços e contrato da tarefa. Atualmente não há cliente HTTP configurado, backend, schema OpenAPI ou serviço de contato; o e-mail mailto informado pelo autor é o canal de contato ativo. Não invente endpoints, chaves, perfis ou URLs.
 
 O escopo é apresentação profissional, projetos, competências e contato. Não importe pagamentos, autenticação empresarial ou gestão de produtos de outro repositório.
 

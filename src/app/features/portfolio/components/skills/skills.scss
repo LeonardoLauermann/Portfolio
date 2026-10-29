@@ -1,0 +1,74 @@
+:host {
+  position: relative;
+  grid-area: skills;
+}
+:host::before,
+:host::after {
+  position: absolute;
+  top: -1.5rem;
+  z-index: 2;
+  width: 0.35rem;
+  height: 1.55rem;
+  border: 1px solid var(--game-stone-500);
+  background: repeating-linear-gradient(
+    0deg,
+    var(--game-stone-200) 0 0.16rem,
+    var(--game-stone-700) 0.16rem 0.3rem
+  );
+  content: '';
+}
+:host::before {
+  left: 1.1rem;
+}
+:host::after {
+  right: 1.1rem;
+}
+.skills-panel {
+  max-height: 35rem;
+  overflow: auto;
+}
+.skills-panel ul {
+  display: grid;
+  gap: 0;
+}
+.skills-panel li {
+  display: grid;
+  grid-template-columns: 1.7rem minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.55rem;
+  min-height: 2.45rem;
+  border-bottom: 1px solid var(--game-stone-edge-alpha-22);
+  color: var(--game-parchment-200);
+  font:
+    0.82rem 'Courier New',
+    monospace;
+}
+.skill-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  image-rendering: pixelated;
+  object-fit: contain;
+  filter: drop-shadow(1px 1px 0 var(--game-ink-950));
+}
+.skill-heading-icon {
+  width: 1.2rem;
+  height: 1.2rem;
+  vertical-align: -0.2rem;
+}
+.skills-panel li strong {
+  color: var(--game-gold-400);
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+@media (max-width: 991.98px) {
+  :host {
+    display: none;
+  }
+  :host(.modal-skills) {
+    display: block;
+    grid-area: auto;
+  }
+  :host(.modal-skills) .skills-panel {
+    max-height: calc(86dvh - 7rem);
+  }
+}

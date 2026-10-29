@@ -11,7 +11,7 @@ Leia AGENTS.md na raiz e confirme package.json, project.json e nx.json. Há some
 
 Antes de editar, leia arquivos afetados e consumidores; use rg para localizar padrões. Diferencie implementação, intenção do usuário, proposta e exemplo genérico. Confirme versões e comandos no código atual, sem perpetuar números de documentação.
 
-NxWelcome é scaffold e não fornece biografia, experiência, projetos ou contatos. Não invente conteúdo pessoal. Não presuma bibliotecas compartilhadas, deploy ou documentação em docs/ ausentes.
+O portfólio implementa uma tela única de RPG com dados profissionais e identidade visual fornecidos pelo autor. Não invente conteúdo pessoal, níveis de habilidade, projetos ou metas. Siga o padrão Lordsz de pastas feature/components, Bootstrap utilitário, tokens de cor centralizados, Material Symbols Outlined, GSAP, CDK e Howler descrito nas skills locais.
 
 Para planos e repasses, registre arquivos concretos, comportamento esperado, decisões aceitas, etapas pendentes, critérios de aceite, estado do git e verificações executadas. Preserve alterações do usuário e o pedido original. Comprima investigações em conclusões verificáveis.
 

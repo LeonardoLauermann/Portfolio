@@ -1,0 +1,74 @@
+:host {
+  position: fixed;
+  z-index: 5;
+  bottom: 1.25rem;
+  left: 1.25rem;
+  width: min(46vw, 44rem);
+}
+.dialogue-panel {
+  min-height: 8.2rem;
+  max-height: 12rem;
+  border-color: var(--game-ink-950);
+  outline-color: var(--game-stone-100);
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0 0.38rem,
+      var(--game-black-alpha-02) 0.38rem 0.42rem
+    ),
+    linear-gradient(
+      135deg,
+      var(--game-parchment-100),
+      var(--game-parchment-200) 58%,
+      var(--game-parchment-300)
+    );
+  box-shadow:
+    inset 0 0 0 0.18rem var(--game-stone-200),
+    inset 0 0 0.9rem var(--game-black-alpha-24),
+    0 0.45rem 1rem var(--game-black-alpha-46);
+}
+.dialogue-scroll {
+  max-height: 9.3rem;
+  overflow-y: auto;
+  padding-right: 0.4rem;
+  color: var(--game-dialogue-ink);
+  font:
+    1rem/1.55 'Courier New',
+    monospace;
+}
+.dialogue-scroll p {
+  margin-bottom: 0.35rem;
+}
+.dialogue-heading {
+  margin: 0 0 0.35rem;
+  color: var(--game-gold-700);
+  font:
+    700 1.15rem 'Courier New',
+    monospace;
+}
+.dialogue-prompt,
+.email-link,
+.project-link {
+  color: var(--game-link-blue);
+  font-weight: 700;
+}
+.email-link {
+  overflow-wrap: anywhere;
+}
+.project-link {
+  display: inline-block;
+  margin-top: 0.1rem;
+}
+.project-link:focus-visible {
+  outline: 2px solid var(--game-link-blue);
+  outline-offset: 2px;
+}
+@media (max-width: 991.98px) {
+  :host {
+    position: relative;
+    z-index: auto;
+    inset: auto;
+    grid-area: dialogue;
+    width: 100%;
+  }
+}

@@ -1,0 +1,28 @@
+<section
+  class="stone-panel skills-panel p-3 p-md-4"
+  aria-labelledby="skills-title"
+>
+  <h2 id="skills-title" class="panel-heading mb-3">
+    <img
+      class="skill-icon skill-heading-icon"
+      src="/icons/skills/sql-pick.svg"
+      alt=""
+      aria-hidden="true"
+    />
+    Habilidades
+  </h2>
+  <ul class="list-unstyled mb-0">
+    @for (skill of skills; track skill.name) {
+    <li>
+      <img
+        class="skill-icon"
+        [src]="'/icons/skills/' + skill.icon + '.svg'"
+        alt=""
+        aria-hidden="true"
+      />
+      <span>{{ skill.name }}</span>
+      <strong>{{ skill.level }}</strong>
+    </li>
+    }
+  </ul>
+</section>
