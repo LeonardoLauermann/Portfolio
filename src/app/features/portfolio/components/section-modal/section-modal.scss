@@ -28,11 +28,13 @@
   backdrop-filter: blur(0.2rem);
 }
 .modal-frame {
+  position: relative;
   display: flex;
   max-height: calc(min(86dvh, 52rem) - 2rem);
   flex-direction: column;
 }
 .modal-heading {
+  padding-right: 3.25rem;
   color: var(--game-gold-300);
   font:
     700 1.25rem 'Courier New',
@@ -40,7 +42,12 @@
   text-shadow: 1px 2px var(--game-ink-900);
 }
 .modal-close {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
   display: inline-grid;
+  flex: 0 0 auto;
   width: 2.5rem;
   height: 2.5rem;
   place-items: center;

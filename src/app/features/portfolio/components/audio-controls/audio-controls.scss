@@ -2,39 +2,162 @@
   display: block;
 }
 .audio-panel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
   width: min(100%, 22rem);
   margin-inline-start: auto;
 }
-.sound-control {
-  border: 1px solid var(--game-stone-100);
-  background: var(--game-stone-900);
+.audio-button {
+  display: inline-flex;
+  min-height: 2.8rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  border: 1px solid var(--game-stone-200);
+  border-radius: 0.55rem;
+  background: linear-gradient(
+    180deg,
+    var(--game-stone-600),
+    var(--game-stone-800)
+  );
   color: var(--game-gold-300);
   font:
-    0.75rem 'Courier New',
+    700 0.78rem 'Courier New',
     monospace;
+  transition:
+    border-color 0.15s ease,
+    background 0.15s ease,
+    transform 0.15s ease;
 }
-.sound-control:hover,
-.sound-control:focus-visible {
-  background: var(--game-stone-550);
+.audio-button:hover,
+.audio-button:focus-visible {
+  border-color: var(--game-gold-400);
+  background: linear-gradient(
+    180deg,
+    var(--game-stone-500),
+    var(--game-stone-650)
+  );
+  color: var(--game-gold-200);
+  transform: translateY(-1px);
+}
+.audio-button:focus-visible {
+  outline: 2px solid var(--game-gold-300);
+  outline-offset: 2px;
+}
+.sound-button {
+  flex: 1 1 auto;
+}
+.sound-button.sound-active {
+  border-color: var(--game-gold-500);
   color: var(--game-gold-200);
 }
-.music-volume {
-  display: grid;
-  grid-template-columns: 1fr auto;
+.audio-button .material-symbols-outlined {
+  font-size: 1.3rem;
+}
+.volume-button {
+  flex: 0 0 auto;
+  min-width: 6.2rem;
+}
+.volume-popover {
+  position: absolute;
+  z-index: 10;
+  right: 0;
+  bottom: calc(100% + 0.6rem);
+  width: min(20rem, calc(100vw - 2rem));
+  box-shadow: 0 0.7rem 2rem var(--game-black-alpha-46);
+}
+.volume-heading,
+.volume-range-labels {
+  display: flex;
   align-items: center;
-  gap: 0.25rem 0.45rem;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.volume-heading {
   color: var(--game-parchment-200);
   font:
-    0.7rem 'Courier New',
+    0.82rem 'Courier New',
     monospace;
 }
-.music-volume > span {
-  grid-column: 1 / -1;
-}
-.music-volume input {
-  width: 100%;
-  accent-color: var(--game-gold-400);
-}
-.music-volume output {
+.volume-heading output {
   color: var(--game-gold-300);
+  font-weight: 700;
+}
+.music-volume {
+  display: block;
+  width: 100%;
+  height: 1.7rem;
+  margin: 0.65rem 0 0.15rem;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+.music-volume::-webkit-slider-runnable-track {
+  height: 0.45rem;
+  border: 1px solid var(--game-ink-950);
+  border-radius: 1rem;
+  background: linear-gradient(
+    90deg,
+    var(--game-stone-500),
+    var(--game-gold-600)
+  );
+}
+.music-volume::-moz-range-track {
+  height: 0.45rem;
+  border: 1px solid var(--game-ink-950);
+  border-radius: 1rem;
+  background: linear-gradient(
+    90deg,
+    var(--game-stone-500),
+    var(--game-gold-600)
+  );
+}
+.music-volume::-webkit-slider-thumb {
+  width: 1.15rem;
+  height: 1.15rem;
+  margin-top: -0.4rem;
+  appearance: none;
+  border: 2px solid var(--game-ink-950);
+  border-radius: 50%;
+  outline: 1px solid var(--game-gold-200);
+  background: var(--game-gold-400);
+}
+.music-volume::-moz-range-thumb {
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid var(--game-ink-950);
+  border-radius: 50%;
+  outline: 1px solid var(--game-gold-200);
+  background: var(--game-gold-400);
+}
+.music-volume:focus-visible {
+  outline: 2px solid var(--game-gold-300);
+  outline-offset: 4px;
+}
+.volume-range-labels {
+  color: var(--game-stone-100);
+  font:
+    0.68rem 'Courier New',
+    monospace;
+}
+@media (prefers-reduced-motion: reduce) {
+  .audio-button {
+    transition: none;
+  }
+}
+.sound-button:not(.sound-active) {
+  color: var(--game-parchment-200);
+}
+.sound-button:not(.sound-active) .material-symbols-outlined {
+  color: var(--game-stone-100);
+}
+@media (max-width: 575.98px) {
+  .audio-panel {
+    width: min(100%, 20rem);
+  }
+}
+.volume-popover {
+  color: var(--game-parchment-200);
 }

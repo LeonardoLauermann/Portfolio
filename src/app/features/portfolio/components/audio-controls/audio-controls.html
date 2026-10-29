@@ -1,26 +1,51 @@
-<section class="stone-panel audio-panel p-3" aria-label="Controles de áudio">
+<section class="stone-panel audio-panel p-2" aria-label="Controles de áudio">
   <button
-    class="sound-control btn btn-sm w-100"
+    class="audio-button sound-button btn"
     type="button"
     [attr.aria-pressed]="sound.enabled()"
+    [attr.aria-label]="sound.enabled() ? 'Silenciar sons' : 'Ativar sons'"
+    [class.sound-active]="sound.enabled()"
     (click)="toggleSound()"
   >
     <span class="material-symbols-outlined" aria-hidden="true"
       >{{ sound.enabled() ? 'volume_up' : 'volume_off' }}</span
     >
-    <span>{{ sound.enabled() ? 'Som ligado' : 'Ativar som' }}</span>
+    <span>{{ sound.enabled() ? 'Som ativo' : 'Som mudo' }}</span>
   </button>
-  <label class="music-volume mt-2">
-    <span>Volume da música</span>
+  <button
+    class="audio-button volume-button btn"
+    type="button"
+    [attr.aria-expanded]="volumeControlsOpen()"
+    [attr.aria-controls]="'music-volume-controls'"
+    [attr.aria-label]="
+      volumeControlsOpen() ? 'Fechar ajuste de volume' : 'Ajustar volume da música'
+    "
+    (click)="toggleVolumeControls()"
+  >
+    <span class="material-symbols-outlined" aria-hidden="true">tune</span>
+    <span>Volume</span>
+  </button>
+
+  @if (volumeControlsOpen()) {
+  <div class="volume-popover stone-panel p-3" id="music-volume-controls">
+    <div class="volume-heading">
+      <label for="ambient-volume">Música ambiente</label>
+      <output>{{ (sound.musicVolume() * 100).toFixed(0) }}%</output>
+    </div>
     <input
+      id="ambient-volume"
+      class="music-volume"
       type="range"
       min="0"
-      max="0.6"
-      step="0.01"
-      [value]="sound.musicVolume()"
-      aria-label="Volume da música ambiente"
+      max="60"
+      step="1"
+      [value]="sound.musicVolume() * 100"
+      [attr.aria-valuetext]="(sound.musicVolume() * 100).toFixed(0) + '%'"
       (input)="updateMusicVolume($event)"
     />
-    <output>{{ (sound.musicVolume() * 100).toFixed(0) }}%</output>
-  </label>
+    <div class="volume-range-labels" aria-hidden="true">
+      <span>Mudo</span><span>60%</span>
+    </div>
+  </div>
+  }
 </section>

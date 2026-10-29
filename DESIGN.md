@@ -31,7 +31,7 @@ O texto usa Courier New e fontes monoespaçadas do sistema para reforçar a inte
 
 - `app`: composição responsiva, estado da seção ativa e entrada dos painéis.
 - `features/portfolio/components/hero`: logotipo e subtítulo.
-- `features/portfolio/components/audio-controls`: controle de som e slider de volume acima do foco profissional.
+- `features/portfolio/components/audio-controls`: botão de som e ajuste de volume recolhido acima do foco profissional.
 - `features/portfolio/components/profile`: nome e resumo profissional.
 - `features/portfolio/components/main-menu`: menu CDK que abre modais de seção.
 - `features/portfolio/components/section-modal`: conteúdo central com foco modal, Escape e botão de fechar.
@@ -42,7 +42,7 @@ O texto usa Courier New e fontes monoespaçadas do sistema para reforçar a inte
 
 Os componentes são standalone, `OnPush`, com arquivos `.ts`, `.html` e `.scss` em pastas por feature, gerados pelo Nx. O menu e a lista vertical de habilidades usam ícones SVG pixelados em CC0, documentados em `public/icons/SOURCES.md`; não há pontuações presumidas. GSAP anima a entrada dos painéis, o balanço ocioso e o deslocamento do personagem, além do brilho sobre as fogueiras já desenhadas ao lado da porta. O ciclo de vida do GSAP é encerrado ao destruir os componentes. A preferência do sistema por movimento reduzido desativa esses movimentos.
 
-Uma ambiência medieval original de 24 segundos em loop começa em volume baixo e sobe suavemente ao longo de oito segundos. O controle permite ligar/desligar e ajustar a música de 0% a 60%; os efeitos de interação têm volume separado e discreto. Os dois arquivos WAV foram sintetizados para o projeto. Se o navegador bloquear a reprodução automática, o serviço tenta novamente após a primeira interação.
+Uma ambiência medieval original de 24 segundos em loop começa em volume baixo e sobe suavemente ao longo de oito segundos. O botão permite ligar/desligar o som; o controle de volume fica recolhido e abre ao selecionar Volume para ajustar a música de 0% a 60%. Os efeitos de interação têm volume separado e discreto. Os dois arquivos WAV foram sintetizados para o projeto. Se o navegador bloquear a reprodução automática, o serviço tenta novamente após a primeira interação.
 
 ## Conteúdo e limites
 
