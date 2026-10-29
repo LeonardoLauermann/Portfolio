@@ -52,14 +52,12 @@
 .game-logo span:nth-child(3n) {
   transform: rotate(-1deg) translateY(0.05rem);
 }
-.game-subtitle {
-  font:
-    700 clamp(0.9rem, 1.7vw, 1.35rem) 'Courier New',
-    monospace;
-  letter-spacing: 0.2em;
-}
 @media (max-width: 575.98px) {
   .game-title {
     padding-inline: 1rem;
+  }
+  .game-logo span {
+    width: 1.8rem;
+    font-size: 1.6rem;
   }
 }

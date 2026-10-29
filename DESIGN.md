@@ -19,7 +19,7 @@ A direção visual segue a captura de referência fornecida pelo autor: uma tela
 | Papel        | `#e6dfd4` | Fundo de pergaminho do diálogo       |
 | Azul         | `#314cc1` | Link de contato no painel de diálogo |
 
-O cenário mantém tons terrosos, verde de vale e azul de estandartes. Painéis usam bordas em camadas, sombras internas e gradientes para sugerir pedra esculpida. O título central exibe “Leonardo Lauermann” em letras individuais de pedra, com a função profissional abaixo. Botões têm relevo, foco visível e realce ao passar o cursor.
+O cenário mantém tons terrosos, verde de vale e azul de estandartes. Painéis usam bordas em camadas, sombras internas e gradientes para sugerir pedra esculpida. O título “PORTFÓLIO” aparece em letras individuais de pedra, sem lâmina sobreposta. Botões têm relevo, foco visível e realce ao passar o cursor.
 
 ## Layout e tipografia
 
