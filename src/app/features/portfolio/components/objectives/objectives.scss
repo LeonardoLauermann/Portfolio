@@ -1,11 +1,15 @@
 :host {
   grid-area: objective;
   align-self: stretch;
-  padding-bottom: 4.8rem;
 }
 .objective-panel p {
   color: var(--game-parchment-200);
   font:
     0.84rem/1.55 'Courier New',
     monospace;
+}
+@media (max-width: 991.98px) {
+  :host {
+    padding-bottom: 4.8rem;
+  }
 }

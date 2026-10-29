@@ -72,6 +72,42 @@
   right: 26%;
 }
 
+.hall-dust {
+  position: fixed;
+  z-index: 1;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.dust-mote {
+  position: absolute;
+  width: 0.18rem;
+  height: 0.18rem;
+  background: var(--game-gold-300);
+  box-shadow: 0 0 0.45rem var(--game-gold-600);
+  opacity: 0.32;
+}
+.dust-mote:nth-child(1) {
+  left: 17%;
+  top: 32%;
+}
+.dust-mote:nth-child(2) {
+  left: 38%;
+  top: 56%;
+}
+.dust-mote:nth-child(3) {
+  left: 58%;
+  top: 20%;
+}
+.dust-mote:nth-child(4) {
+  left: 75%;
+  top: 61%;
+}
+.dust-mote:nth-child(5) {
+  left: 88%;
+  top: 35%;
+}
+
 @media (max-width: 991.98px) {
   .game-stage {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -94,6 +130,9 @@
   .door-fire-right {
     top: 25rem;
     right: 4%;
+  }
+  .dust-mote:nth-child(n + 4) {
+    display: none;
   }
 }
 

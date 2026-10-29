@@ -5,6 +5,7 @@
 .game-title {
   padding: 0.25rem 2.5rem 0.75rem;
   color: var(--game-gold-400);
+  cursor: default;
   text-shadow:
     0 0.15rem var(--game-ink-900),
     0 0 0.7rem var(--game-ink-950);
@@ -42,6 +43,9 @@
   text-shadow:
     1px 1px var(--game-stone-100),
     2px 2px var(--game-ink-950);
+}
+.game-logo span:hover {
+  filter: brightness(1.2);
 }
 .game-logo span:nth-child(3n + 1) {
   transform: rotate(-4deg) translateY(0.12rem);

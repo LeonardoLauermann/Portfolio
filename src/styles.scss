@@ -95,9 +95,17 @@ a {
   outline: 1px solid var(--game-stone-200);
   background:
     repeating-linear-gradient(
+      90deg,
+      transparent 0 2.7rem,
+      var(--game-black-alpha-02) 2.7rem 2.9rem,
+      transparent 2.9rem 5.4rem
+    ),
+    repeating-linear-gradient(
       0deg,
-      transparent 0 0.38rem,
-      var(--game-white-alpha-02) 0.38rem 0.42rem
+      transparent 0 0.25rem,
+      var(--game-white-alpha-02) 0.25rem 0.31rem,
+      transparent 0.31rem 0.48rem,
+      var(--game-black-alpha-02) 0.48rem 0.54rem
     ),
     linear-gradient(
       145deg,
@@ -107,6 +115,8 @@ a {
     );
   box-shadow:
     inset 0 0 0 0.18rem var(--game-stone-450),
+    inset 0.3rem 0.3rem 0 var(--game-white-alpha-02),
+    inset -0.3rem -0.3rem 0 var(--game-black-alpha-24),
     inset 0 0 1.1rem var(--game-black-alpha-45),
     0 0.45rem 1rem var(--game-black-alpha-46);
 }

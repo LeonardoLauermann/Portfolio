@@ -102,7 +102,7 @@ export class Skills {
         { name: 'Docker', icon: 'docker-fish', level: 70 },
         { name: 'Linux', icon: 'azure-lightning' },
         { name: 'CI/CD', icon: 'dotnet-bars' },
-        { name: 'Quartz.NET', icon: 'education-scroll' },
+        { name: 'Quartz.NET', icon: 'menu/education-scroll' },
       ],
     },
     {

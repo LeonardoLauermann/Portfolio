@@ -8,20 +8,25 @@
   padding: 1rem;
   overflow: hidden;
   border: 0.22rem solid var(--game-ink-950);
-  border-radius: 0.9rem;
+  border-radius: 0.4rem;
   outline: 2px solid var(--game-stone-300);
-  background: linear-gradient(
-    145deg,
-    var(--game-stone-650),
-    var(--game-stone-900) 62%,
-    var(--game-ink-950)
-  );
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0 0.35rem,
+      var(--game-white-alpha-02) 0.35rem 0.4rem
+    ),
+    linear-gradient(
+      145deg,
+      var(--game-stone-650),
+      var(--game-stone-900) 62%,
+      var(--game-ink-950)
+    );
   box-shadow:
     inset 0 0 0 0.2rem var(--game-stone-500),
     inset 0 0 1.5rem var(--game-black-alpha-46),
     0 1rem 4rem var(--game-black-alpha-48);
   color: var(--game-parchment-200);
-  animation: modal-enter 0.2s ease-out both;
 }
 .stone-modal::backdrop {
   background: var(--game-charcoal-alpha-62);
@@ -104,19 +109,4 @@
 .modal-close:focus-visible {
   outline: 2px solid var(--game-gold-200);
   outline-offset: 3px;
-}
-@keyframes modal-enter {
-  from {
-    opacity: 0;
-    transform: translateY(0.5rem) scale(0.98);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .stone-modal {
-    animation: none;
-  }
 }

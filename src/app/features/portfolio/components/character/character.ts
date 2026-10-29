@@ -58,6 +58,18 @@ export class Character implements AfterViewInit, OnDestroy {
 
     this.idleTween?.pause();
     this.animationContext.add(() => {
+      gsap.fromTo(
+        '.wizard-spark',
+        { autoAlpha: 0, scale: 0.4, y: 5 },
+        {
+          autoAlpha: 1,
+          scale: 1.15,
+          y: -8,
+          duration: 0.35,
+          repeat: 1,
+          yoyo: true,
+        },
+      );
       gsap
         .timeline({
           onComplete: () => this.idleTween?.resume(),

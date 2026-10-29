@@ -19,6 +19,16 @@
   object-fit: contain;
   image-rendering: pixelated;
 }
+.wizard-spark {
+  position: absolute;
+  top: 24%;
+  right: 9%;
+  color: var(--game-gold-300);
+  font-size: 1.4rem;
+  opacity: 0;
+  pointer-events: none;
+  text-shadow: 0 0 0.7rem var(--game-fire-glow);
+}
 @media (max-width: 991.98px) {
   :host {
     width: min(45vw, 12rem);
