@@ -80,8 +80,8 @@
       'title title'
       'profile profile'
       'avatar avatar'
-      'menu menu'
       'dialogue dialogue'
+      'menu menu'
       'objective objective';
     overflow-x: clip;
     background-attachment: scroll;
@@ -100,7 +100,7 @@
 @media (max-width: 575.98px) {
   .game-stage {
     gap: 0.8rem;
-    padding: 0.7rem !important;
+    padding: 0.7rem 0.7rem 5rem !important;
   }
 }
 

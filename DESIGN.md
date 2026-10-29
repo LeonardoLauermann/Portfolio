@@ -23,7 +23,7 @@ O cenário mantém tons terrosos, verde de vale e azul de estandartes. Painéis 
 
 ## Layout e tipografia
 
-Em telas largas, o layout distribui ficha do personagem, título, habilidades, personagem, menu central, mensagem de boas-vindas e foco profissional em três colunas. Em tablets e celulares, os blocos passam a uma coluna; o quadro lateral de habilidades fica oculto e aparece em modal central quando a opção Habilidades é selecionada. A mensagem neutra de boas-vindas permanece no rodapé, enquanto cada opção do menu abre sua própria modal. O menu tem altura adequada ao toque e o personagem reduz de tamanho sem desaparecer.
+Em telas largas, o layout distribui ficha do personagem, título, habilidades, personagem, menu central, mensagem de boas-vindas e foco profissional em três colunas. Em tablets e celulares, os blocos passam a uma coluna; o quadro lateral de habilidades fica oculto e aparece em modal central quando a opção Habilidades é selecionada. A mensagem neutra de boas-vindas fica logo acima do menu no mobile, enquanto cada opção abre sua própria modal. O controle de áudio flutua no canto inferior direito em desktop e mobile. O menu tem altura adequada ao toque e o personagem reduz de tamanho sem desaparecer.
 
 O texto usa Courier New e fontes monoespaçadas do sistema para reforçar a interface retrô; o título contrasta com letras serifadas em placas de pedra e o subtítulo dourado. Bootstrap 5.3 fornece container, grid, utilitários de espaço e flex, botões e recursos de acessibilidade; SCSS local fica para os materiais, a composição de tela e a pixel art.
 
@@ -31,7 +31,7 @@ O texto usa Courier New e fontes monoespaçadas do sistema para reforçar a inte
 
 - `app`: composição responsiva, estado da seção ativa e entrada dos painéis.
 - `features/portfolio/components/hero`: logotipo e subtítulo.
-- `features/portfolio/components/audio-controls`: botão de som e ajuste de volume recolhido acima do foco profissional.
+- `features/portfolio/components/audio-controls`: controle de som flutuante no canto inferior direito, com ajuste de volume recolhido.
 - `features/portfolio/components/profile`: nome e resumo profissional.
 - `features/portfolio/components/main-menu`: menu CDK que abre modais de seção.
 - `features/portfolio/components/section-modal`: conteúdo central com foco modal, Escape e botão de fechar.

@@ -17,6 +17,7 @@ import { Hero } from './features/portfolio/components/hero/hero';
 import { Profile } from './features/portfolio/components/profile/profile';
 import { Skills } from './features/portfolio/components/skills/skills';
 import { SectionModal } from './features/portfolio/components/section-modal/section-modal';
+import { AudioControls } from './features/portfolio/components/audio-controls/audio-controls';
 
 @Component({
   imports: [
@@ -28,6 +29,7 @@ import { SectionModal } from './features/portfolio/components/section-modal/sect
     Profile,
     Skills,
     SectionModal,
+    AudioControls,
   ],
   selector: 'app-root',
   templateUrl: './app.html',

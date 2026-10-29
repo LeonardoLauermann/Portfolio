@@ -1,10 +1,7 @@
 :host {
   grid-area: objective;
   align-self: stretch;
-}
-.objective-stack {
-  display: grid;
-  gap: 0.8rem;
+  padding-bottom: 4.8rem;
 }
 .objective-panel p {
   color: var(--game-parchment-200);

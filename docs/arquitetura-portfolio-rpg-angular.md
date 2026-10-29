@@ -22,7 +22,7 @@ src/app/
 │       ├── character/                 # sprite, idle e deslocamento
 │       ├── dialogue/                  # mensagem neutra de boas-vindas
 │       ├── hero/                      # título e nome
-│       ├── audio-controls/            # mute e volume acima do foco profissional
+│       ├── audio-controls/            # controle flutuante de som e volume
 │       ├── main-menu/                 # opções de navegação CDK
 │       ├── section-modal/             # detalhe central da opção selecionada
 │       ├── objectives/                # foco profissional documentado
@@ -40,7 +40,7 @@ O feature único `portfolio` segue o formato do Lordsz: cada componente vive em 
 
 A captura de referência define o enquadramento: ficha no topo esquerdo, título central, habilidades à direita, menu de opções ao centro, personagem na área inferior esquerda, diálogo na base e foco profissional no canto inferior direito. O diálogo usa fundo claro de pergaminho e tipografia maior para manter o texto legível sobre a cena escura. Em telas estreitas, os elementos fluem em uma coluna e preservam todas as opções por rolagem; o personagem continua visível em tamanho menor.
 
-A mensagem de boas-vindas permanece neutra no canto inferior esquerdo. Cada opção do menu central abre uma janela modal central com o conteúdo correspondente; a janela nativa fecha por Escape ou pelo botão de fechar e mantém o foco acessível. Em mobile, o quadro lateral de habilidades fica oculto e a mesma lista aparece na modal ao selecionar Habilidades. Projetos lista duas landing pages (Santa Rosa e Claudete Lauermann — Terapia Holística) e o Movie Explorer, descrito como catálogo para visualizar filmes sem reprodução, cada um com link externo. O quadro de habilidades exibe os níveis numéricos informados na imagem de referência. O foco profissional resume as atividades descritas no currículo. O controle de áudio ocupa a coluna direita logo acima desse painel; em telas estreitas, fica imediatamente antes dele.
+A mensagem de boas-vindas permanece neutra no canto inferior esquerdo em desktop e fica logo acima do menu em mobile. Cada opção do menu central abre uma janela modal central com o conteúdo correspondente; a janela nativa fecha por Escape ou pelo botão de fechar e mantém o foco acessível. Em mobile, o quadro lateral de habilidades fica oculto e a mesma lista aparece na modal ao selecionar Habilidades. Projetos lista duas landing pages (Santa Rosa e Claudete Lauermann — Terapia Holística) e o Movie Explorer, descrito como catálogo para visualizar filmes sem reprodução, cada um com link externo. O quadro de habilidades exibe os níveis numéricos informados na imagem de referência. O foco profissional resume as atividades descritas no currículo. O controle de áudio flutua no canto inferior direito em desktop e mobile; a página reserva espaço junto ao foco profissional para não o cobrir.
 
 GSAP anima a entrada gradual dos painéis, o movimento idle e caminhada curta do personagem e a oscilação do brilho das fogueiras já presentes na arte de fundo, ao lado da porta. `gsap.context()` delimita e limpa as animações do shell; o componente do personagem reverte o contexto ao ser destruído. `prefers-reduced-motion` desativa os tweens contínuos e a entrada animada.
 
