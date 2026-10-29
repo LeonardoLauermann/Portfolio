@@ -19,7 +19,7 @@ A direção visual segue a captura de referência fornecida pelo autor: uma tela
 | Papel        | `#e6dfd4` | Fundo de pergaminho do diálogo       |
 | Azul         | `#314cc1` | Link de contato no painel de diálogo |
 
-O cenário mantém tons terrosos, verde de vale e azul de estandartes. Painéis usam bordas em camadas, sombras internas e gradientes para sugerir pedra esculpida. O título usa letras individuais com textura de pedra, sem arma sobreposta. Botões têm relevo, foco visível e realce ao passar o cursor.
+O cenário mantém tons terrosos, verde de vale e azul de estandartes. Painéis usam bordas em camadas, sombras internas e gradientes para sugerir pedra esculpida. O título central exibe “Leonardo Lauermann” em letras individuais de pedra, com a função profissional abaixo. Botões têm relevo, foco visível e realce ao passar o cursor.
 
 ## Layout e tipografia
 
@@ -42,7 +42,7 @@ O texto usa Courier New e fontes monoespaçadas do sistema para reforçar a inte
 
 Os componentes são standalone, `OnPush`, com arquivos `.ts`, `.html` e `.scss` em pastas por feature, gerados pelo Nx. O menu e a lista vertical de habilidades usam ícones SVG pixelados em CC0, documentados em `public/icons/SOURCES.md`; não há pontuações presumidas. GSAP anima a entrada dos painéis, o balanço ocioso e o deslocamento do personagem, além do brilho sobre as fogueiras já desenhadas ao lado da porta. O ciclo de vida do GSAP é encerrado ao destruir os componentes. A preferência do sistema por movimento reduzido desativa esses movimentos.
 
-Uma ambiência medieval original de 24 segundos em loop começa em volume baixo e sobe suavemente ao longo de oito segundos. O botão permite ligar/desligar o som; o controle de volume fica recolhido e abre ao selecionar Volume para ajustar a música de 0% a 60%. Os efeitos de interação têm volume separado e discreto. Os dois arquivos WAV foram sintetizados para o projeto. Se o navegador bloquear a reprodução automática, o serviço tenta novamente após a primeira interação.
+Uma trilha original de fantasia retrô em loop combina melodia suave de flauta, arpejos de alaúde, acordes sustentados e percussão leve. Começa em volume baixo e sobe suavemente ao longo de oito segundos. O botão permite ligar/desligar o som; o controle de volume fica recolhido e abre ao selecionar Volume para ajustar a música de 0% a 60%. Os efeitos de interação têm volume separado e discreto. Os arquivos WAV são sintetizados para o projeto e a trilha ambiente pode ser regenerada com `npm run sounds:generate`. Se o navegador bloquear a reprodução automática, o serviço tenta novamente após a primeira interação.
 
 ## Conteúdo e limites
 

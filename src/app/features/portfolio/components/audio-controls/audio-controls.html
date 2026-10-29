@@ -26,8 +26,11 @@
     <span>Volume</span>
   </button>
 
-  @if (volumeControlsOpen()) {
-  <div class="volume-popover stone-panel p-3" id="music-volume-controls">
+  <div
+    class="volume-popover stone-panel p-3"
+    id="music-volume-controls"
+    [hidden]="!volumeControlsOpen()"
+  >
     <div class="volume-heading">
       <label for="ambient-volume">Música ambiente</label>
       <output>{{ (sound.musicVolume() * 100).toFixed(0) }}%</output>
@@ -47,5 +50,4 @@
       <span>Mudo</span><span>60%</span>
     </div>
   </div>
-  }
 </section>

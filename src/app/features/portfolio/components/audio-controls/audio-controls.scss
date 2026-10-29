@@ -6,7 +6,8 @@
   display: flex;
   align-items: center;
   gap: 0.55rem;
-  width: min(100%, 22rem);
+  width: fit-content;
+  max-width: 100%;
   margin-inline-start: auto;
 }
 .audio-button {
@@ -47,7 +48,9 @@
   outline-offset: 2px;
 }
 .sound-button {
-  flex: 1 1 auto;
+  flex: 0 0 auto;
+  min-width: 7.2rem;
+  padding-inline: 0.65rem;
 }
 .sound-button.sound-active {
   border-color: var(--game-gold-500);
@@ -60,6 +63,10 @@
   flex: 0 0 auto;
   min-width: 6.2rem;
 }
+.volume-button[aria-expanded='true'] {
+  border-color: var(--game-gold-400);
+  color: var(--game-gold-200);
+}
 .volume-popover {
   position: absolute;
   z-index: 10;
@@ -67,6 +74,9 @@
   bottom: calc(100% + 0.6rem);
   width: min(20rem, calc(100vw - 2rem));
   box-shadow: 0 0.7rem 2rem var(--game-black-alpha-46);
+}
+.volume-popover[hidden] {
+  display: none;
 }
 .volume-heading,
 .volume-range-labels {

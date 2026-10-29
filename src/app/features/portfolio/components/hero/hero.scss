@@ -3,7 +3,7 @@
   align-self: center;
 }
 .game-title {
-  padding: 0.25rem 2.5rem 0.75rem;
+  padding: 0.25rem 0.25rem 0.75rem;
   color: var(--game-gold-400);
   text-shadow:
     0 0.15rem var(--game-ink-900),
@@ -13,13 +13,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: clamp(0.06rem, 0.25vw, 0.2rem);
+  gap: clamp(0.02rem, 0.16vw, 0.12rem);
   color: var(--game-ink-950);
   filter: drop-shadow(0 0.35rem 0.35rem var(--game-black-alpha-46));
 }
 .game-logo span {
   display: grid;
-  width: clamp(1.65rem, 4.1vw, 3.5rem);
+  width: clamp(1.05rem, 1.7vw, 1.7rem);
   aspect-ratio: 0.82;
   place-items: center;
   border: 0.13rem solid var(--game-ink-950);
@@ -36,7 +36,7 @@
     inset -0.18rem -0.2rem 0 var(--game-black-alpha-35),
     0 0.12rem 0 var(--game-ink-900);
   font:
-    900 clamp(1.45rem, 3.4vw, 3rem) / 1 'Georgia',
+    900 clamp(0.85rem, 1.55vw, 1.4rem) / 1 'Georgia',
     'Times New Roman',
     serif;
   text-shadow:
@@ -52,6 +52,9 @@
 .game-logo span:nth-child(3n) {
   transform: rotate(-1deg) translateY(0.05rem);
 }
+.game-logo .name-space {
+  margin-inline-end: clamp(0.18rem, 0.5vw, 0.45rem);
+}
 .game-subtitle {
   font:
     700 clamp(0.9rem, 1.7vw, 1.35rem) 'Courier New',
@@ -60,6 +63,9 @@
 }
 @media (max-width: 575.98px) {
   .game-title {
-    padding-inline: 1rem;
+    padding-inline: 0.25rem;
+  }
+  .game-logo {
+    gap: 0.02rem;
   }
 }
