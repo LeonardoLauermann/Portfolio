@@ -122,6 +122,7 @@ export class Skills {
       skills: [
         { name: 'WPF', icon: 'dotnet-bars' },
         { name: 'Windows Forms', icon: 'dotnet-bars' },
+        { name: 'Electron', icon: 'dotnet-bars' },
       ],
     },
     {
