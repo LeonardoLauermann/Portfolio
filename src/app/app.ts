@@ -45,6 +45,7 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
     '(prefers-reduced-motion: reduce)',
   );
   private animationContext?: gsap.Context;
+  private mobilePanelObserver?: IntersectionObserver;
   private readonly ambientAnimations: gsap.core.Animation[] = [];
   private readonly desktopSkillsQuery = window.matchMedia('(min-width: 992px)');
   private readonly updateDesktopSkills = (event: MediaQueryListEvent): void =>
@@ -63,13 +64,44 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
   ngAfterViewInit(): void {
     this.animationContext = gsap.context(() => {
       if (!this.motionPreference.matches) {
-        gsap.from('.stone-panel, app-hero', {
-          autoAlpha: 0,
-          y: 14,
-          duration: 0.55,
-          stagger: 0.08,
-          ease: 'power2.out',
-        });
+        const isMobile = !this.desktopSkillsQuery.matches;
+        gsap.from(
+          isMobile
+            ? '.stone-panel:not(.dialogue-panel):not(.menu-panel), app-hero'
+            : '.stone-panel, app-hero',
+          {
+            autoAlpha: 0,
+            y: 14,
+            duration: 0.55,
+            stagger: 0.08,
+            ease: 'power2.out',
+          },
+        );
+
+        if (isMobile) {
+          const panels = gsap.utils.toArray<HTMLElement>(
+            '.dialogue-panel, .menu-panel',
+          );
+          gsap.set(panels, { autoAlpha: 0, y: 14 });
+          this.mobilePanelObserver = new IntersectionObserver(
+            (entries, observer) => {
+              entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                observer.unobserve(entry.target);
+                this.animationContext?.add(() => {
+                  gsap.to(entry.target, {
+                    autoAlpha: 1,
+                    y: 0,
+                    duration: 0.55,
+                    ease: 'power2.out',
+                  });
+                });
+              });
+            },
+            { threshold: 0.1 },
+          );
+          panels.forEach((panel) => this.mobilePanelObserver?.observe(panel));
+        }
 
         gsap.from('.game-logo span', {
           y: -12,
@@ -124,6 +156,7 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
       this.updateDesktopSkills,
     );
     document.removeEventListener('visibilitychange', this.updateVisibility);
+    this.mobilePanelObserver?.disconnect();
     this.animationContext?.revert();
   }
 
