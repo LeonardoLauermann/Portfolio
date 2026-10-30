@@ -121,8 +121,10 @@
 
 @media (max-width: 991.98px) {
   .game-stage {
+    height: auto;
+    min-height: 100svh;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    grid-template-rows: auto auto minmax(4rem, 0.8fr) auto minmax(0, 1fr);
+    grid-template-rows: auto auto clamp(12rem, 32svh, 20rem) auto auto;
     grid-template-areas:
       'title title'
       'profile profile'
@@ -130,6 +132,7 @@
       'dialogue dialogue'
       'menu menu';
     background-attachment: scroll;
+    overflow: visible;
   }
 
   .door-fire-left {
