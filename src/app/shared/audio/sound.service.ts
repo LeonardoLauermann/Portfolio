@@ -1,8 +1,8 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable, OnDestroy, signal } from '@angular/core';
 import { Howl } from 'howler';
 
 @Injectable({ providedIn: 'root' })
-export class SoundService {
+export class SoundService implements OnDestroy {
   private readonly enabledState = signal(true);
   private readonly musicVolumeState = signal(0.24);
   readonly enabled = this.enabledState.asReadonly();
@@ -18,36 +18,41 @@ export class SoundService {
     src: ['sounds/castle-ambience.wav'],
     volume: 0.02,
     loop: true,
-    autoplay: true,
     preload: true,
-    onplay: () =>
-      this.ambience.fade(this.ambience.volume(), this.musicVolume(), 8000),
+    onplay: () => {
+      if (!this.canPlay()) {
+        this.ambience.pause();
+        return;
+      }
+      this.ambience.fade(this.ambience.volume(), this.musicVolume(), 8000);
+    },
     onplayerror: () => {
       this.ambience.once('unlock', () => {
-        if (this.enabled()) this.ambience.play();
+        if (this.canPlay()) this.ambience.play();
       });
     },
   });
 
   toggle(): void {
     if (this.enabled()) {
-      if (!this.ambience.playing()) {
-        this.ambience.play();
-        this.ambience.fade(this.ambience.volume(), this.musicVolume(), 1200);
-        return;
-      }
-
       this.enabledState.set(false);
-      this.ambience.fade(this.ambience.volume(), 0, 350);
-      window.setTimeout(() => {
-        if (!this.enabled()) this.ambience.stop();
-      }, 375);
+      this.selection.stop();
+      if (this.ambience.playing()) {
+        this.ambience.fade(this.ambience.volume(), 0, 350);
+        window.setTimeout(() => {
+          if (!this.enabled()) this.ambience.stop();
+        }, 375);
+      } else {
+        this.ambience.stop();
+      }
       return;
     }
 
     this.enabledState.set(true);
-    if (!this.ambience.playing()) this.ambience.play();
-    this.ambience.fade(this.ambience.volume(), this.musicVolume(), 1200);
+    this.syncPlayback();
+    if (this.ambience.playing()) {
+      this.ambience.fade(this.ambience.volume(), this.musicVolume(), 1200);
+    }
     this.playUi();
   }
 
@@ -60,6 +65,25 @@ export class SoundService {
   }
 
   playUi(): void {
-    if (this.enabled()) this.selection.play();
+    if (this.canPlay()) this.selection.play();
+  }
+
+  ngOnDestroy(): void {
+    this.ambience.unload();
+    this.selection.unload();
+  }
+
+  syncPlayback(): void {
+    if (!this.canPlay()) {
+      this.ambience.pause();
+      this.selection.stop();
+      return;
+    }
+
+    if (!this.ambience.playing()) this.ambience.play();
+  }
+
+  private canPlay(): boolean {
+    return this.enabled() && !document.hidden && document.hasFocus();
   }
 }
