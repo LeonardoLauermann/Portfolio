@@ -63,7 +63,7 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
   ngAfterViewInit(): void {
     this.animationContext = gsap.context(() => {
       if (!this.motionPreference.matches) {
-        gsap.from('.stone-panel, app-hero', {
+        gsap.from('.stone-panel:not(.dialogue-panel), app-hero', {
           autoAlpha: 0,
           y: 14,
           duration: 0.55,

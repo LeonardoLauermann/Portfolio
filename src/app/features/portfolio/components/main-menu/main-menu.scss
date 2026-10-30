@@ -3,6 +3,8 @@
   align-self: center;
   justify-self: center;
   width: min(100%, 26rem);
+  max-height: 100%;
+  overflow-y: auto;
 }
 .menu-panel {
   padding: 1.1rem !important;
@@ -64,7 +66,7 @@
   transform: translateY(2px);
 }
 .menu-option {
-  min-height: 3.5rem;
+  min-height: clamp(2.5rem, 5vh, 3.5rem);
 }
 .menu-icon {
   display: block;
@@ -93,5 +95,15 @@
   .menu-icon,
   .menu-arrow {
     transition: none;
+  }
+}
+
+@media (max-width: 991.98px) {
+  :host {
+    align-self: stretch;
+  }
+
+  .menu-panel {
+    padding-bottom: 4.5rem !important;
   }
 }

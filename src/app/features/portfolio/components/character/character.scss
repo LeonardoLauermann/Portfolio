@@ -3,7 +3,7 @@
   align-self: end;
   justify-self: center;
   width: min(100%, 28rem);
-  height: clamp(20rem, 42vh, 29rem);
+  height: min(100%, 29rem);
 }
 .character-wrap {
   position: relative;
@@ -108,13 +108,12 @@
 @media (max-width: 991.98px) {
   :host {
     width: min(85vw, 21rem);
-    height: 17rem;
+    height: 100%;
     justify-self: center;
   }
 }
 @media (max-width: 575.98px) {
   :host {
     width: min(88vw, 19rem);
-    height: 14rem;
   }
 }
